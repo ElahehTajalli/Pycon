@@ -1,0 +1,83 @@
+
+
+.mainDiv {
+    display: flex;
+    /* flex-grow: 1; */
+    background-color: #84bce4;
+    flex-direction: column;
+}
+
+
+
+/* ......................................header........................................ */
+/* .................................................................................... */
+
+.header {
+    flex-direction: row !important;
+    justify-content: flex-end;
+    /* overflow: hidden; */
+
+}
+
+.MuiTab-textColorSecondary {
+    color: white !important;
+}
+
+.MuiTab-textColorSecondary.Mui-selected {
+    background-color: #facb30 !important;
+    color: #3f51b5 !important;
+    border-radius: 30px;
+}
+
+/* .MuiTab-fullWidth {
+    height: 60px;
+} */
+
+.MuiTab-root {
+    min-height: 0 !important;
+    padding: 4px 12px !important;
+    padding-bottom: 8px !important;
+}
+
+
+.PrivateTabIndicator-colorSecondary-63 {
+    background-color: unset !important;
+}
+
+
+.MuiAppBar-root {
+    display: flex !important;
+}
+
+.MuiTabs-scroller {
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.divStyle {
+    background-color:white;
+    width:20px;
+    height: 20px;
+}
+  /* .style::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  
+  .style::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 15px;
+  }
+   
+  
+  .style::-webkit-scrollbar-thumb {
+    background: #061c30; 
+    border-radius: 15px;
+  }
+  
+  
+  .style::-webkit-scrollbar-thumb:hover {
+    background: #437caf; 
+  } */
