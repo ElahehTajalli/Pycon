@@ -29,26 +29,25 @@
 // }
 
 
-import React, { Component } from "react";
-import Navbar from "./Navbar";
-import Section from "./Section";
-import dummyText from "../DummyText";
+import React, { Component } from "react"
+import Navbar from "./Navbar"
+import Section from "./Section"
+import dummyText from "../DummyText"
+// import './Pycon.css'
+import logo from '../photos/mainLogo.svg'
+import Countdown from './Countdown'
+import { Link  } from 'react-router-dom'
+import HomeSection from './HomeSection'
+import ContactSection from './ContactSection'
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Navbar />
-        <Section
-          title="ثبت نام"
-          subtitle={dummyText}
-          dark={true}
-          id="section1"
-        />
-        <Section
-          title="خانه"
-          subtitle={dummyText}
-          dark={false}
-          id="section2"
+        <HomeSection
+          id='section2'
         />
         <Section
           title="درباره پایکان"
@@ -92,9 +91,8 @@ class App extends Component {
           dark={true}
           id="section9"
         />
-        <Section
+        <ContactSection
           title="تماس با ما"
-          subtitle={dummyText}
           dark={false}
           id="section10"
         />
@@ -103,4 +101,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

@@ -1,111 +1,22 @@
 import React, { Component } from "react"
-import logo from "../logo.svg"
 import { Link, animateScroll as scroll } from "react-scroll"
-import { Link as LinkTo } from 'react-router-dom'
 
-export default class Navbar extends Component {
 
-  render() {
-    return (
-      <nav className="nav" id="navbar">
-        <div className="nav-content">
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section10"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                تماس با ما
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section9"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                حامیان
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section8"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                سوالات متداول
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section7"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-               ارسال مقالات
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section6"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                برنامه روز دوم
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section5"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                برنامه روز اول
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section4"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                محور های همایش
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section3"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                درباره پایکان
-              </Link>
-            </li>
-            <li className="nav-item">
+export default class HomeSection extends Component {
+    render() {
+        return (
+            <div className={"section" + (this.props.dark ? " section-dark" : "")}>
+                <div className="section-content" id={this.props.id}>
+                    <h1>{this.props.title}</h1>
+                    <div className='contactSection'>
+                    <div className='contactUsDiv'>
+                        <span>اطلاعات تماس</span>
+                        <span>نشانی</span>
+                        <span>پست الکترونیکی</span>
+                        <span>تلفن</span>
+                    </div>
+                    <div className='menuContact'>
+                    <li className="navItem">
               <Link
                 activeClass="active"
                 to="section2"
@@ -117,21 +28,111 @@ export default class Navbar extends Component {
                 صفحه اصلی
               </Link>
             </li>
-            {/* <li className="nav-item"> */}
-              {/* <Link
+            <li className="navItem">
+              <Link
                 activeClass="active"
-                to="section1"
+                to="section3"
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={500}
               >
-              ثبت نام
-              </Link> */}
-              {/* <LinkTo to='/signUp/' className='signUpLink'>ثبت نام</LinkTo>
-            </li> */}
-        </div>
-      </nav>
-    );
-  }
+                درباره پایکان
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section4"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                محور های همایش
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section5"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                برنامه روز اول
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section6"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                برنامه روز دوم
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section7"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+               ارسال مقالات
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section8"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                سوالات متداول
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section9"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                حامیان
+              </Link>
+            </li>
+            <li className="navItem">
+              <Link
+                activeClass="active"
+                to="section10"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                تماس با ما
+              </Link>
+            </li>
+
+           
+                </div>
+                    
+
+                    </div>
+                    
+                </div>
+          </div>
+        )
+    }
 }

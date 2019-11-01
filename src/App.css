@@ -1,10 +1,7 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
 
 
-/* .App {
-  text-align: center;
-}
 
+/* 
 .App-logo {
   height: 40vmin;
 }
@@ -25,14 +22,21 @@
 } */
 
 :root {
-  --off-white: #fafafa;
+  /* --off-white: #fafafa; */
+  /* background-color: #edbf38; */
 }
+
+.App {
+  background-color: #edbf38;
+}
+
+
 .nav {
   background-color: var(--off-white);
   position: sticky;
   top: 0px;
   width: 100%;
-  height: 80px;
+  /* height: 80px; */
   z-index: 1000;
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
@@ -51,19 +55,29 @@
   padding: 0rem 3rem;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 100%;
+  font-size: 13px;
+  justify-content: center;
+  /* font:13px "Open Sans", sans-serif; */
+  /* background-color: #276fb3; */
+  background-color: #282828;
+  height: 70px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
 
 .nav-item {
   display: inline;
   margin-left: 2rem;
-  color: #333;
+  color: white;
+  font-weight: bolder
 }
 
 .nav-item:hover {
-  color: black;
+  color: #fecb2f;
   cursor: pointer;
 }
 
@@ -79,17 +93,454 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 40px;
+  /*  */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .nav-item > .active {
-  background-color: #e0f157;
+  background-color: #fecb2f;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #282828;
+}
+
+
+.h1 {
+  display: inline !important;
+}
+
+.logo {
+  background-image:url(./photos/mainLogo.svg);
+  /* width: 600px; */
+  background-size: cover;
+  height: 753px;
+}
+
+
+.timeDiv {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+
+.signUpLink {
+  align-self: center;
+  padding: 20px 40px;
+  background-color: #282828;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.signUpLink:hover , .sendButton:hover{
+  color: #fecb2f;
+  cursor: pointer;
+}
+
+.sendButton {
+  align-self: center;
+  padding: 20px 68px;
+  background-color: #282828;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* ....................................sign up .............................................. */
+/* .......................................................................................... */
+
+.signUpDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.infoDiv {
+  border: 1px solid #adacac;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 30px;
+  height:72;
+  margin-bottom: 68px;
+}
+
+
+.nameDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+}
+
+
+.otherInfoDiv {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+
+
+.nextButton {
+  align-self: center;
+  padding: 10px 86px;
+  background-color: #3671a2;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family:sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+
+.signUpLogo {
+  background-image:url(./photos/signUpLogo.svg);
+  /* width: 600px; */
+  background-size: cover;
+  height: 753px;
+}
+
+
+
+
+/* ..................................Sign up navbar.................................... */
+/* .................................................................................... */
+
+.nav .nav-contents {
+    padding: 0rem 3rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    font-size: 13px;
+    justify-content: flex-end !important;
+    background-color: #3671a2;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+.nav-items {
+  display: inline;
+  margin-left: 2rem;
+  color: #ffffff;
+}
+
+.nav-items:hover {
+  color: black;
+  cursor: pointer;
+}
+
+
+.nav-items > .active {
+  background-color: #fecb2f;
   border-radius: 20px;
   padding: 10px;
+  color: #276fb3;
 }
 
-.nav .nav-content {
-  font-size: 13px;
-  justify-content: flex-end !important;
-  font:13px "Open Sans", sans-serif;
+
+.signUpLinks {
+  text-decoration: none;
+  color: white;
 }
 
+.signUpLinks:hover {
+  color: black;
+  cursor: pointer;
+}
+
+
+
+
+/* .............................Confirm information.................................... */
+/* .................................................................................... */
+
+.confirmDiv {
+  border: 1px solid #adacac;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 30px;
+  height: 73vh;
+}
+
+
+.mainConfirmDiv {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  height: 95vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.buttonDiv {
+  justify-content: space-around;
+  width: 600px;
+  display: flex;
+}
+
+.confirmButton {
+  align-self: center;
+  padding: 10px 60px;
+  background-color: #3671a2;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family:sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.confirmDiv b {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+
+.confirmPayButton {
+  background-color: #6ad280;
+  padding: 10px 73px;
+}
+/* 
+@font-face {
+  font-family: Vazir;
+  src: url('Vazir.eot');
+  src: url('Vazir.eot?#iefix') format('embedded-opentype'),
+       url('Vazir.woff2') format('woff2'),
+       url('Vazir.woff') format('woff'),
+       url('Vazir.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
+
+
+/* ............................................Count Down............................................... */
+/* ..................................................................................................... */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* * {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	min-height: 100vh;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+} */
+
+h1 {
+	letter-spacing: 2px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.countdown-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.countdown-item {
+	color: #111;
+	font-size: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+    line-height: 30px;
+	margin: 10px;
+    padding-top: 10px;
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.countdown-item span {
+	color: #333;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.countdown-svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+
+
+
+
+/* ..........................................landing  page........................................... */
+/* .................................................................................................. */
+
+.payText {
+  background-color: green;
+  border-radius: 20px;
+  padding: 0px 20px;
+  width: 600px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 50px 0px 10px 0px;
+}
+
+
+.informationDiv {
+  border: 1px solid #adacac;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 30px;
+  height:72;
+  margin-bottom: 10px;
+}
+
+
+.prevButton {
+  align-self: center;
+  padding: 10px 50px;
+  background-color: #3671a2;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-family:sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+
+.buttonsDiv {
+  justify-content: space-around;
+  width: 600px;
+  display: flex;
+  margin-top: 30px;
+}
+
+
+
+
+/* .....................................contact section................................... */
+/* ....................................................................................... */
+
+
+.menuContact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.contactSection {
+  display: flex;
+  justify-content: space-between;
+  width: 430px;
+  align-items: flex-start;
+  line-height: 2em;
+  margin-top: 25px;
+}
+
+
+.contactUsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.navItem {
+  display: inline;
+  cursor: pointer;
+}
+
+
+.navItem:hover {
+  color: white;
+}
