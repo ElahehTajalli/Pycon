@@ -21,7 +21,8 @@ export const getInformation = (firstname, lastname, eng_firstname, eng_lastname,
   })
 
 
-  export const getLang = (en) => ({
+  export const getLang = (en ,changeLang) => ({
     type: 'GET_LANG',
     en: en,
+    changeLang: changeLang
   })

@@ -5,4 +5,8 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch: dispatch
 })
 
-export default connect(mapDispatchToProps)(SignUp)
+const mapStateToProps = (state) => ({
+  en: state.en
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

@@ -9,7 +9,8 @@ const initial = {
     phone: '',
     postalCode: '',
     address: '',
-    en: false 
+    en: false ,
+    changeLang : 'en'
 }
 
 
@@ -41,7 +42,8 @@ const pycon = (state = initial, action) => {
             case 'GET_LANG':
                 return {
                     ...state,
-                    en: action.en
+                    en: action.en,
+                    changeLang: action.changeLang
                 }    
         
 

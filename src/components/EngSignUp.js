@@ -4,11 +4,11 @@ import logo from '../photos/signUpLogo.svg'
 import ConfirmInfo from '../components/ConfirmInfo'
 import Slide from '@material-ui/core/Slide'
 import { getInformation } from '../action/Pycon'
-import { FaSignUpNavbar } from './mutliLang'
+import { EngSignUpNavbar } from './mutliLang';
 
 
 
-export default class SignUp extends React.Component {
+export default class EngSignUp extends React.Component {
     constructor() {
         super()
 
@@ -46,32 +46,10 @@ export default class SignUp extends React.Component {
         return (
             <div className='signUpDiv'>
                 {/* <div className='signUpLogo'/> */}
-                <FaSignUpNavbar />
+                <EngSignUpNavbar />
                 <img src={logo}/>
-                <h1>ثبت نام</h1>
+                <h1>Sign Up</h1>
                 <div className='infoDiv'>
-                    <div className='nameDiv'>
-                        <TextField
-                            // id="outlined-email-input"
-                            label="نام خانوادگی"
-                            type="text"
-                            name="lastname"
-                            margin="normal"
-                            variant="outlined"
-                            onChange={(e)=> this.changeInput(e)}
-
-                        />
-                         <TextField
-                            // id="outlined-email-input"
-                            label="نام"
-                            type="text"
-                            name="firstname"
-                            margin="normal"
-                            variant="outlined"
-                            onChange={(e)=> this.changeInput(e)}
-
-                        />
-                    </div>
                     <div className='nameDiv'>
                         <TextField
                             // id="outlined-email-input"
@@ -107,18 +85,8 @@ export default class SignUp extends React.Component {
 
                         />
                         <TextField
-                                // id="outlined-email-input"
-                                label="کد ملی"
-                                type="text"
-                                name="code"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={(e)=> this.changeInput(e)}
-
-                        />
-                        <TextField
                                 id="outlined-email-input"
-                                label="محل کار یا تحصیل"
+                                label="Work"
                                 type="text"
                                 name="work"
                                 margin="normal"
@@ -128,7 +96,7 @@ export default class SignUp extends React.Component {
                         />
                         <TextField
                                 id="outlined-email-input"
-                                label="شماره تماس"
+                                label="Phone number"
                                 type="tel"
                                 name="phone"
                                 margin="normal"
@@ -136,40 +104,15 @@ export default class SignUp extends React.Component {
                                 onChange={(e)=> this.changeInput(e)}
 
                         />
-                        <TextField
-                                id="outlined-email-input"
-                                label="کد پستی"
-                                type="text"
-                                name="postalCode"
-                                margin="normal"
-                                variant="outlined"
-                                onChange={(e)=> this.changeInput(e)}
-
-                        />
-                        <TextField
-                            id="outlined-dense-multiline"
-                            name='address'
-                            label="آدرس محل سکونت"
-                            margin="dense"
-                            variant="outlined"
-                            multiline
-                            rowsMax="4"
-                            onChange={(e)=> this.changeInput(e)}
-                        />
                     </div>
-                    <button type='submit' className='nextButton' onClick={()=> this.handleChange()}>مرحله بعد</button>
+                    <button type='submit' className='nextButton' onClick={()=> this.handleChange()}>Next</button>
                     <Slide direction="left" in={this.state.checked} mountOnEnter unmountOnExit>
                         <ConfirmInfo
-                            firstname={this.state.firstname}
-                            lastname={this.state.lastname}
                             eng_firstname={this.state.eng_firstname}
                             eng_lastname={this.state.eng_lastname}
                             email={this.state.email}
-                            code={this.state.code}
                             work={this.state.work}
                             phone={this.state.phone}
-                            postalCode={this.state.postalCode}
-                            address={this.state.address}
                             handleChange={()=>this.handleChange()}
                         />
                     </Slide>

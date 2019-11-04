@@ -5,4 +5,9 @@ const mapDispatchToProps = (dispatch) => ({
   dispatch: dispatch
 })
 
-export default connect(mapDispatchToProps)(Navbar)
+const mapStateToProps = (state) => ({
+  en: state.en,
+  changeLang: state.changeLang
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

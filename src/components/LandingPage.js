@@ -1,8 +1,8 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import logo from '../photos/signUpLogo.svg'
-import Navbar from "./SignUpNavbar"
 import { Link } from 'react-router-dom'
+import {FaSignUpNavbar} from './mutliLang'
 
 import ConfirmInfo from '../components/ConfirmInfo'
 import Slide from '@material-ui/core/Slide'
@@ -16,7 +16,7 @@ export default class SignUp extends React.Component {
     render () {
         return (
             <div className='signUpDiv'>
-                <Navbar />
+                <FaSignUpNavbar />
                 <img src={logo}/>
                 <div className='payText'>
                     <p>.شما با موفقیت ثبت نام کردید</p>

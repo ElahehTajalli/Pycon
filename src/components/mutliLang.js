@@ -1,7 +1,8 @@
 import React from 'react'
 import dummyText from "../DummyText"
-import ContactSection from './ContactSection'
+import ContactSectionContainer from '../container/ContactSectionContainer'
 import { Link, animateScroll as scroll } from "react-scroll"
+import { Link as LinkTo } from 'react-router-dom'
 
 export const FaSection = () => (
     <>
@@ -29,7 +30,7 @@ export const FaSection = () => (
         dark={false}
         id="section9"
         />
-        <ContactSection
+        <ContactSectionContainer
         title="تماس با ما"
         dark={true}
         id="section10"
@@ -64,7 +65,7 @@ export const EngSection = () => (
         dark={false}
         id="section4"
         />
-        <ContactSection
+        <ContactSectionContainer
         title="Infromation"
         dark={true}
         id="section10"
@@ -260,3 +261,179 @@ export const NavbarEng = () => (
         </li>
     </>
 )
+
+
+export const FaContactSection = () => (
+    <>
+        <div className='contactUsDiv'>
+            <span>اطلاعات تماس</span>
+            <span>نشانی</span>
+            <span>پست الکترونیکی</span>
+            <span>تلفن</span>
+        </div>
+        <div className='menuContact'>
+            <li className="navItem">
+            <Link
+            activeClass="active"
+            to="section2"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            صفحه اصلی
+            </Link>
+            </li>
+            <li className="navItem">
+            <Link
+            activeClass="active"
+            to="section3"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            درباره پایکان
+            </Link>
+            </li>
+            <li className="navItem">
+            <Link
+            activeClass="active"
+            to="section4"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            محور های همایش
+            </Link>
+            </li>
+            <li className="navItem">
+            <Link
+            activeClass="active"
+            to="section6"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            برنامه  
+            </Link>
+            </li>
+            <li className="navItem">
+            <Link
+            activeClass="active"
+            to="section9"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            حامیان
+            </Link>
+            </li>
+        </div>
+    </>
+)
+
+
+
+
+export const EngContactSection = () => (
+    <>
+        <div className='menuContact' style={{ alignItems: 'flex-start' }}>
+            <li className="navItem">
+                <Link
+                activeClass="active"
+                to="section2"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                >
+                Home
+                </Link>
+                </li>
+                <li className="navItem">
+                <Link
+                activeClass="active"
+                to="section5"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                >
+                Schedule  
+                </Link>
+                </li>
+                <li className="navItem">
+                <Link
+                activeClass="active"
+                to="section3"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                >
+                About
+                </Link>
+                </li>
+
+                <li className="navItem">
+                <Link
+                activeClass="active"
+                to="section9"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                >
+                Sponsors
+                </Link>
+                </li>
+
+                <li className="navItem">
+                <Link
+                activeClass="active"
+                to="section4"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                >
+                Event
+                </Link>
+                </li>
+
+        </div>
+        <div className='contactUsDiv' style={{ alignItems: 'flex-start' }}>
+            <span>Contact Info:</span>
+            <span>Address:</span>
+            <span>Email:</span>
+            <span>Phone Number:</span>
+        </div>
+    </>
+)
+
+
+export const EngSignUpNavbar = () => (
+    <nav className="nav" id="navbar">
+        <div className="nav-contents">
+            <li className="nav-items">
+              <LinkTo to='/' className='signUpLinks'>Home</LinkTo>
+            </li>
+        </div>
+      </nav>
+)
+
+
+export const FaSignUpNavbar = () => (
+    <nav className="nav" id="navbar">
+        <div className="nav-contents">
+            <li className="nav-items">
+              <LinkTo to='/' className='signUpLinks'>صفحه اصلی</LinkTo>
+            </li>
+        </div>
+      </nav>
+)
+

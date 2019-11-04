@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../photos/signUpLogo.svg'
-import Navbar from "./SignUpNavbar"
 import { Link } from 'react-router-dom'
+import { FaSignUpNavbar } from './mutliLang'
 
 
 
@@ -9,7 +9,7 @@ export default class SignUp extends React.Component {
     render () {
         return (
             <div className='signUpDiv'>
-                <Navbar />
+                <FaSignUpNavbar />
                 <img src={logo}/>
                 <div className='payText'>
                     <p>.ثبت نام شما با عنوان ارسال مقاله موفقیت آمیز بود</p>

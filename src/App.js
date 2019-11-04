@@ -11,6 +11,8 @@ import pycon from './reducer/Pycon'
 import LandingPageContainer from './container/LandingPageContainer'
 import ArticleContainer from './container/ArticlesContainer'
 import ArticleLandingPageContainer from './container/ArticleLandingPageContainer'
+import EngSignUp from './components/EngSignUp'
+
 
 
 const store = createStore(pycon, applyMiddleware(logger))
@@ -22,6 +24,7 @@ function App() {
       <Router>
         <Route path='/' exact component={PyconContainer} />
         <Route path='/signUp/' exact component={SignUpContainer} />
+        <Route path='/enSignUp/' exact component={EngSignUp} />
         <Route path='/landingPage/' exact component={LandingPageContainer} />
         <Route path='/articles/' exact component={ArticleContainer} />
         <Route path='/articleLandingPage/' exact component={ArticleLandingPageContainer} />

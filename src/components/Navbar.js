@@ -14,11 +14,18 @@ export default class Navbar extends Component {
   }
 
   handleLang() {
-    if (!this.state.eng){
-      this.setState({ eng: true, changeLang: 'fa' },()=>this.props.dispatch(getLang(this.state.eng)))
+    if(this.props.en){
+      this.setState({ eng: false, changeLang: 'en' },()=>this.props.dispatch(getLang(this.state.eng , this.state.changeLang)))
+    }
+    else if (!this.props.en) {
+      this.setState({ eng: true, changeLang: 'fa' },()=>this.props.dispatch(getLang(this.state.eng , this.state.changeLang)))
+
+    }
+    else if (!this.state.eng){
+        this.setState({ eng: true, changeLang: 'fa' },()=>this.props.dispatch(getLang(this.state.eng , this.state.changeLang)))
     }
     else {
-      this.setState({ eng: false, changeLang: 'en' },()=>this.props.dispatch(getLang(this.state.eng)))
+      this.setState({ eng: false, changeLang: 'en' },()=>this.props.dispatch(getLang(this.state.eng , this.state.changeLang)))
     }
   }
 
@@ -27,14 +34,14 @@ export default class Navbar extends Component {
     return (
       <nav className="nav" id="navbar">
       <div className="nav-content">
-      <LinkTo to='/' className="lang" onClick={() => this.handleLang()}>{this.state.changeLang}</LinkTo>
+      <LinkTo to='/' className="lang" onClick={() => this.handleLang()}>{this.props.changeLang}</LinkTo>
 
-      {!this.state.eng && 
+      {!this.props.en && 
           <NavbarFa />
         }
-        {this.state.eng &&
-          <NavbarEng />
-        }       
+      {this.props.en &&
+        <NavbarEng />
+      }       
 
       </div>
     </nav>

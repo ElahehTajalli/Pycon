@@ -1,10 +1,10 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import logo from '../photos/signUpLogo.svg'
-import Navbar from "./SignUpNavbar"
 import { getInformationArticle } from '../action/Pycon'
 import { Link  } from 'react-router-dom'
 import AttachmentIcon from '@material-ui/icons/Attachment';
+import { FaSignUpNavbar } from './mutliLang';
 
 
 
@@ -50,7 +50,7 @@ export default class SignUp extends React.Component {
         return (
             <div className='signUpDiv'>
                 {/* <div className='signUpLogo'/> */}
-                <Navbar />
+                <FaSignUpNavbar />
                 <img src={logo}/>
                 <h1>ارسال مقالات</h1>
                 <div className='infoDiv'>
