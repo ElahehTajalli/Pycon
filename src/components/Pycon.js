@@ -30,72 +30,27 @@
 
 
 import React, { Component } from "react"
-import Navbar from "./Navbar"
-import Section from "./Section"
-import dummyText from "../DummyText"
-// import './Pycon.css'
-import logo from '../photos/mainLogo.svg'
-import Countdown from './Countdown'
-import { Link  } from 'react-router-dom'
-import HomeSection from './HomeSection'
-import ContactSection from './ContactSection'
+import NavbarContainer from "../container/NavbarContainer"
+import HomeSectionContainer from '../container/HomeSectionContainer'
+import { FaSection, EngSection } from './mutliLang'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
-        <HomeSection
+        <NavbarContainer />
+        <HomeSectionContainer
           id='section2'
         />
-        <Section
-          title="درباره پایکان"
-          subtitle={dummyText}
-          dark={true}
-          id="section3"
-        />
-        <Section
-          title="محور های همایش"
-          subtitle={dummyText}
-          dark={false}
-          id="section4"
-        />
-        <Section
-          title="برنامه روز اول"
-          subtitle={dummyText}
-          dark={true}
-          id="section5"
-        />
-        <Section
-          title="برنامه روز دوم"
-          subtitle={dummyText}
-          dark={false}
-          id="section6"
-        />
-        <Section
-          title="ارسال مقالات"
-          subtitle={dummyText}
-          dark={true}
-          id="section7"
-        />
-        <Section
-          title="سوالات متداول"
-          subtitle={dummyText}
-          dark={false}
-          id="section8"
-        />
-        <Section
-          title="حامیان"
-          subtitle={dummyText}
-          dark={true}
-          id="section9"
-        />
-        <ContactSection
-          title="تماس با ما"
-          dark={false}
-          id="section10"
-        />
+        {!this.props.en &&
+          <FaSection />
+        }
+        {this.props.en &&
+          <EngSection />
+
+        }
+
       </div>
     );
   }

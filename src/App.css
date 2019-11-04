@@ -1,6 +1,3 @@
-
-
-
 /* 
 .App-logo {
   height: 40vmin;
@@ -28,6 +25,7 @@
 
 .App {
   background-color: #edbf38;
+  position: relative;
 }
 
 
@@ -64,7 +62,7 @@
   background-color: #282828;
   height: 70px;
   position: absolute;
-  right: 0;
+  /* right: 0; */
   width: 100%;
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
@@ -81,8 +79,24 @@
   cursor: pointer;
 }
 
-.section {
+.lang {
+    display: inline;
+    margin-left: 2rem;
+    /* color: white; */
+    font-weight: bolder;
+    text-decoration: none;
+    position: absolute;
+    left: 0;
+    background-color: #facb30;
+    padding: 10px;
+    border-radius: 10px;
 }
+
+.lang:hover {
+  color: #fecb2f;
+  cursor: pointer;
+}
+
 
 .section-dark {
   background: #333;
@@ -97,6 +111,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.engSection-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  /*  */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .nav-item > .active {
@@ -143,7 +167,6 @@
   font-family: sans-serif;
   border: none;
   cursor: pointer;
-  margin-right: 20px;
 }
 
 .signUpLink:hover , .sendButton:hover{
@@ -162,7 +185,10 @@
   font-family: sans-serif;
   border: none;
   cursor: pointer;
+  margin-right: 20px;
 }
+
+
 
 
 /* ....................................sign up .............................................. */
@@ -202,21 +228,21 @@
 .otherInfoDiv {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
 }
 
 
 .nextButton {
   align-self: center;
-  padding: 10px 86px;
+  padding: 20px 86px;
   background-color: #3671a2;
-  border-radius: 30px;
+  border-radius: 20px;
   color: white;
   text-decoration: none;
   font-size: 20px;
   font-family:sans-serif;
   border: none;
   cursor: pointer;
+  margin-top: 40px;
 }
 
 
@@ -543,4 +569,73 @@ footer a {
 
 .navItem:hover {
   color: white;
+}
+
+
+
+
+
+
+
+
+/* ................................ Articles................................ */
+/* ......................................................................... */
+
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.btn {
+  border: none;
+  color: white;
+  background-color: white;
+  padding: 11px 14px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  background-color: #259a25;
+  right: 0;
+  bottom: 0;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 39px;
+  position: absolute;
+  left: 8px;
+  top: 17px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.upload-btn-wrapper input[type=text] {
+  border: 1px solid #c4c4c4;
+  position: relative;
+  width: 222px;
+  height: 53px;
+  border-radius: 27px;
+  margin-top: 16px;
+  background-color: white;
+  padding: 0px 14px;
+}
+
+.upload-btn-wrapper input[type=text]::placeholder {
+  font-size: 15px;
+  color: green
+}
+
+.MuiSvgIcon-root {
+  font-size: 30px !important;
+}
+
+
+
+.PrivateNotchedOutline-root-60 {
+  border-radius: 27px !important;
 }

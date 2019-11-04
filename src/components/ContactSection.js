@@ -112,27 +112,12 @@ export default class HomeSection extends Component {
                 حامیان
               </Link>
             </li>
-            <li className="navItem">
-              <Link
-                activeClass="active"
-                to="section10"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                تماس با ما
-              </Link>
-            </li>
-
-           
-                </div>
-                    
-
-                    </div>
-                    
-                </div>
           </div>
+                    
+        </div>
+                    
+    </div>
+  </div>
         )
     }
 }

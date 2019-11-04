@@ -8,7 +8,8 @@ const initial = {
     work: '',
     phone: '',
     postalCode: '',
-    address: ''
+    address: '',
+    en: false 
 }
 
 
@@ -28,6 +29,21 @@ const pycon = (state = initial, action) => {
                 postalCode: action.postalCode,
                 address: action.address
             }
+
+            case 'GET_INFORMATION_ARTICLE':
+                return {
+                    ...state,
+                    firstname: action.firstname,
+                    lastname: action.lastname,
+                    email: action.email,
+                }  
+            
+            case 'GET_LANG':
+                return {
+                    ...state,
+                    en: action.en
+                }    
+        
 
         default:
             return state    

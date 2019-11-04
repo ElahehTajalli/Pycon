@@ -1,137 +1,44 @@
 import React, { Component } from "react"
-import logo from "../logo.svg"
-import { Link, animateScroll as scroll } from "react-scroll"
 import { Link as LinkTo } from 'react-router-dom'
+import { NavbarFa, NavbarEng } from './mutliLang'
+import { getLang } from '../action/Pycon'
 
 export default class Navbar extends Component {
+  constructor() {
+    super()
 
-  render() {
+    this.state = {
+      eng : false,
+      changeLang : 'en'
+    }
+  }
+
+  handleLang() {
+    if (!this.state.eng){
+      this.setState({ eng: true, changeLang: 'fa' },()=>this.props.dispatch(getLang(this.state.eng)))
+    }
+    else {
+      this.setState({ eng: false, changeLang: 'en' },()=>this.props.dispatch(getLang(this.state.eng)))
+    }
+  }
+
+
+  render() {        
     return (
       <nav className="nav" id="navbar">
-        <div className="nav-content">
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section10"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                تماس با ما
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section9"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                حامیان
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section8"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                سوالات متداول
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section7"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-               ارسال مقالات
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section6"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                برنامه روز دوم
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section5"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                برنامه روز اول
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section4"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                محور های همایش
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section3"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                درباره پایکان
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                activeClass="active"
-                to="section2"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                صفحه اصلی
-              </Link>
-            </li>
-            {/* <li className="nav-item"> */}
-              {/* <Link
-                activeClass="active"
-                to="section1"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-              ثبت نام
-              </Link> */}
-              {/* <LinkTo to='/signUp/' className='signUpLink'>ثبت نام</LinkTo>
-            </li> */}
-        </div>
-      </nav>
-    );
+      <div className="nav-content">
+      <LinkTo to='/' className="lang" onClick={() => this.handleLang()}>{this.state.changeLang}</LinkTo>
+
+      {!this.state.eng && 
+          <NavbarFa />
+        }
+        {this.state.eng &&
+          <NavbarEng />
+        }       
+
+      </div>
+    </nav>
+        
+       )
   }
 }

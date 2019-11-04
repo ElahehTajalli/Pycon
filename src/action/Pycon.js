@@ -11,3 +11,17 @@ export const getInformation = (firstname, lastname, eng_firstname, eng_lastname,
     postalCode: postalCode,
     address: address
   })
+
+
+  export const getInformationArticle = (firstname, lastname, email) => ({
+    type: 'GET_INFORMATION_ARTICLE',
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+  })
+
+
+  export const getLang = (en) => ({
+    type: 'GET_LANG',
+    en: en,
+  })
