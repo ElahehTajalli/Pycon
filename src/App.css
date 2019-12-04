@@ -1,27 +1,27 @@
-/* 
-.App-logo {
-  height: 40vmin;
+
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('/node_modules/vazir-font/dist/Vazir.eot');
+  src: url('/node_modules/vazir-font/dist/Vazir.eot?#iefix') format('embedded-opentype'),
+       url('/node_modules/vazir-font/dist/Vazir.woff2') format('woff2'),
+       url('/node_modules/vazir-font/dist/Vazir.woff') format('woff'),
+       url('/node_modules/vazir-font/dist/Vazir.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+body {
+  font-family: 'Vazir' !important;
 }
 
-.App-link {
-  color: #09d3ac;
-} */
 
-:root {
-  /* --off-white: #fafafa; */
-  /* background-color: #edbf38; */
+fieldset {
+  border-radius: 27px !important;
 }
+
 
 .App {
   background-color: #edbf38;
@@ -50,7 +50,7 @@
 
 .nav .nav-content {
   /* max-width: 900px; */
-  padding: 0rem 3rem;
+  /* padding: 0rem 3rem; */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -153,6 +153,7 @@
 .buttons {
   display: flex;
   align-items: center;
+  font-family: 'vazir';
 }
 
 
@@ -164,7 +165,6 @@
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family: sans-serif;
   border: none;
   cursor: pointer;
 }
@@ -172,6 +172,7 @@
 .signUpLink:hover , .sendButton:hover{
   color: #fecb2f;
   cursor: pointer;
+  font-family: 'vazir';
 }
 
 .sendButton {
@@ -182,10 +183,10 @@
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family: sans-serif;
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-family: 'vazir';
 }
 
 
@@ -239,10 +240,10 @@
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family:sans-serif;
   border: none;
   cursor: pointer;
   margin-top: 40px;
+  font-family: 'vazir';
 }
 
 
@@ -260,7 +261,7 @@
 /* .................................................................................... */
 
 .nav .nav-contents {
-    padding: 0rem 3rem;
+    /* padding: 0rem 3rem; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -301,6 +302,7 @@
 .signUpLinks {
   text-decoration: none;
   color: white;
+  padding-right: 25px;
 }
 
 .signUpLinks:hover {
@@ -343,6 +345,7 @@
   justify-content: space-around;
   width: 600px;
   display: flex;
+  font-family: 'vazir';
 }
 
 .confirmButton {
@@ -353,9 +356,9 @@
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family:sans-serif;
   border: none;
   cursor: pointer;
+  font-family: 'vazir';
 }
 
 .confirmDiv b {
@@ -367,18 +370,8 @@
 .confirmPayButton {
   background-color: #6ad280;
   padding: 10px 73px;
+  font-family: 'vazir';
 }
-/* 
-@font-face {
-  font-family: Vazir;
-  src: url('Vazir.eot');
-  src: url('Vazir.eot?#iefix') format('embedded-opentype'),
-       url('Vazir.woff2') format('woff2'),
-       url('Vazir.woff') format('woff'),
-       url('Vazir.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} */
 
 
 
@@ -517,9 +510,9 @@ footer a {
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family:sans-serif;
   border: none;
   cursor: pointer;
+  font-family: 'vazir';
 }
 
 
@@ -528,6 +521,7 @@ footer a {
   width: 600px;
   display: flex;
   margin-top: 30px;
+  font-family: 'vazir';
 }
 
 
@@ -627,7 +621,9 @@ footer a {
 
 .upload-btn-wrapper input[type=text]::placeholder {
   font-size: 15px;
-  color: green
+  color: green;
+  font-family: 'Vazir';
+  
 }
 
 .MuiSvgIcon-root {
@@ -639,3 +635,42 @@ footer a {
 .PrivateNotchedOutline-root-60 {
   border-radius: 27px !important;
 }
+
+
+
+
+/* .....................................eng confirm page..................................... */
+/* .......................................................................................... */
+
+.engMainConfirmDiv {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  height: 66vh;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.engConfirmDiv {
+  border: 1px solid #adacac;
+  border-radius: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 45vh;
+}
+
+
+.engConfirmPayButton {
+  background-color: #6ad280;
+  font-family: 'vazir';
+}
+
+
+
+

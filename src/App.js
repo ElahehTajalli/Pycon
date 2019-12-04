@@ -10,8 +10,11 @@ import SignUpContainer from './container/SignUpContainer'
 import pycon from './reducer/Pycon'
 import LandingPageContainer from './container/LandingPageContainer'
 import ArticleContainer from './container/ArticlesContainer'
+import EngArticleContainer from './container/EngArticlesContainer'
 import ArticleLandingPageContainer from './container/ArticleLandingPageContainer'
-import EngSignUp from './components/EngSignUp'
+import EngArticleLandingPageContainer from './container/EngArticleLandingPageContainer'
+import EngSignUpContainer from './container/EngSignUpContainer'
+import EngLandingPageContainer from './container/EngLandingPageContainer';
 
 
 
@@ -24,13 +27,13 @@ function App() {
       <Router>
         <Route path='/' exact component={PyconContainer} />
         <Route path='/signUp/' exact component={SignUpContainer} />
-        <Route path='/enSignUp/' exact component={EngSignUp} />
+        <Route path='/enSignUp/' exact component={EngSignUpContainer} />
         <Route path='/landingPage/' exact component={LandingPageContainer} />
+        <Route path='/enLandingPage/' exact component={EngLandingPageContainer} />
         <Route path='/articles/' exact component={ArticleContainer} />
+        <Route path='/enArticles/' exact component={EngArticleContainer} />
         <Route path='/articleLandingPage/' exact component={ArticleLandingPageContainer} />
-
-
-
+        <Route path='/enArticleLandingPage/' exact component={EngArticleLandingPageContainer} />
         {/* <Route path='/confirm/' exact component={ConfirmInformation} /> */}
         {/* <Route path='/profile/' exact component={Profile} />
         <Route path='/messenger/' component={Messenger} /> */}

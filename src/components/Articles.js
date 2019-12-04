@@ -62,6 +62,11 @@ export default class SignUp extends React.Component {
                             name="lastname"
                             margin="normal"
                             variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
                             onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -72,6 +77,11 @@ export default class SignUp extends React.Component {
                             name="firstname"
                             margin="normal"
                             variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
                             onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -84,6 +94,11 @@ export default class SignUp extends React.Component {
                             name="eng_firstname"
                             margin="normal"
                             variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
                             onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -94,6 +109,11 @@ export default class SignUp extends React.Component {
                             name="eng_lastname"
                             margin="normal"
                             variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
                             onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -107,6 +127,11 @@ export default class SignUp extends React.Component {
                             autoComplete="email"
                             margin="normal"
                             variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
                             onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -117,6 +142,11 @@ export default class SignUp extends React.Component {
                                 name="code"
                                 margin="normal"
                                 variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir'
+                                    },
+                                }}
                                 onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -127,6 +157,11 @@ export default class SignUp extends React.Component {
                                 name="work"
                                 margin="normal"
                                 variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir'
+                                    },
+                                }}
                                 onChange={(e)=> this.changeInput(e)}
 
                         />
@@ -136,7 +171,12 @@ export default class SignUp extends React.Component {
                                 type="tel"
                                 name="phone"
                                 margin="normal"
-                                variant="outlined"
+                                variant='outlined'
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir'
+                                    },
+                                }}
                                 onChange={(e)=> this.changeInput(e)}
 
                         />

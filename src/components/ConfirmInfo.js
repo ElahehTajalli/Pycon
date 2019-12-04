@@ -12,7 +12,7 @@ export default class SignUp extends React.Component {
                 <h1 style={{justifyContent:'center', display:'flex'}}>تایید اطلاعات </h1>
                 <div className='confirmDiv'>
                     <p><b>نام و نام خانوادگی :</b>     {this.props.firstname} {this.props.lastname}</p>
-                    <p>{this.props.eng_firstname} {this.props.eng_lasttname}     <b>: نام و نام خانوادگی به زبان لاتین </b></p>
+                    <p>{this.props.eng_firstname} {this.props.eng_lastname}     <b>: نام و نام خانوادگی به زبان لاتین </b></p>
                     <p>{this.props.email}    <b> : ایمیل</b></p>
                     <p>{this.props.code}     <b>: کد ملی</b></p>
                     <p>{this.props.work}     <b>: محل کار یا تحصیل</b></p>

@@ -19,7 +19,7 @@ export default class HomeSection extends Component {
             }
              {this.props.en &&
               <div className='buttons'>
-              <Link to='/articles/' className='sendButton'>Submit paper</Link>
+              <Link to='/enArticles/' className='sendButton'>Submit paper</Link>
               <Link to='/enSignUp/' className='signUpLink'>Register as participant</Link>
             </div>
             }

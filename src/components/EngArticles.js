@@ -1,14 +1,14 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import logo from '../photos/signUpLogo.svg'
-import EngConfirmInfo from '../components/EngConfirmInfo'
-import Slide from '@material-ui/core/Slide'
-import { getInformation } from '../action/Pycon'
+import { getInformationArticle } from '../action/Pycon'
+import { Link  } from 'react-router-dom'
+import AttachmentIcon from '@material-ui/icons/Attachment';
 import { EngSignUpNavbar } from './mutliLang';
 
 
 
-export default class EngSignUp extends React.Component {
+export default class SignUp extends React.Component {
     constructor() {
         super()
 
@@ -22,38 +22,42 @@ export default class EngSignUp extends React.Component {
             code: '',
             work: '',
             phone: '',
-            postalCode: '',
-            address: ''
+            nameOfFile: ''
         }
     }
 
     handleChange () {
         this.setState({ checked : !this.state.checked })
-        this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
-            this.state.email, this.state.work, this.state.work, this.state.phone)))
+        this.props.dispatch((getInformationArticle(this.state.firstname, this.state.lastname, this.state.email)))
+
     }
 
     changeInput (e) {
         const name = e.target.name
         this.setState({ [name]: e.target.value})
     }
+
+
+    showname () {
+        var name = document.getElementById('fileInput'); 
+        console.log('Selected file: ' + name.files.item(0).name);
+        this.setState({nameOfFile: name.files.item(0).name })
+      };
     
 
 
     render () {
         return (
             <div className='signUpDiv'>
-                {/* <div className='signUpLogo'/> */}
                 <EngSignUpNavbar />
                 <img src={logo}/>
-                <h1>Sign Up</h1>
+                <h1>Submit Paper</h1>
                 <div className='infoDiv'>
                     <div className='nameDiv'>
                         <TextField
-                            // id="outlined-email-input"
                             label="First Name"
                             type="text"
-                            name="firstname"
+                            name="irstname"
                             margin="normal"
                             variant="outlined"
                             onChange={(e)=> this.changeInput(e)}
@@ -94,7 +98,7 @@ export default class EngSignUp extends React.Component {
                         />
                         <TextField
                                 id="outlined-email-input"
-                                label="Phone number"
+                                label="Phone Number"
                                 type="tel"
                                 name="phone"
                                 margin="normal"
@@ -103,17 +107,12 @@ export default class EngSignUp extends React.Component {
 
                         />
                     </div>
-                    <button type='submit' className='nextButton' onClick={()=> this.handleChange()}>Next</button>
-                    <Slide direction="left" in={this.state.checked} mountOnEnter unmountOnExit>
-                        <EngConfirmInfo
-                            firstname={this.state.firstname}
-                            lastname={this.state.lastname}
-                            email={this.state.email}
-                            work={this.state.work}
-                            phone={this.state.phone}
-                            handleChange={()=>this.handleChange()}
-                        />
-                    </Slide>
+                    <div className="upload-btn-wrapper">
+                        <button className="btn"><AttachmentIcon /></button>
+                        <input type="file" name="myfile" id="fileInput" onChange={() => this.showname()} />
+                        <input type="text" value={this.state.nameOfFile} onChange={() => this.showname()} disabled placeholder='Upload Article'/>
+                    </div>
+                    <Link to='/enArticleLandingPage/' className='nextButton' onClick={()=> this.handleChange()}>Pay</Link>
                 </div>
                 
             </div>
