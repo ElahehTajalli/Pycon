@@ -121,6 +121,20 @@ export default class SignUp extends React.Component {
                     <div className='otherInfoDiv'>
                         <TextField
                             // id="outlined-email-input"
+                            label="نام کاربری"
+                            type="text"
+                            name="username"
+                            margin="normal"
+                            variant="outlined"
+                            InputLabelProps={{
+                                style: {
+                                    fontFamily: 'Vazir'
+                                },
+                            }}
+                            onChange={(e)=> this.changeInput(e)}
+                        />
+                        <TextField
+                            // id="outlined-email-input"
                             label="Email"
                             type="email"
                             name="email"

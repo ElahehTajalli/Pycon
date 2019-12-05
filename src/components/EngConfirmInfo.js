@@ -11,7 +11,7 @@ export default class SignUp extends React.Component {
             <div className='engMainConfirmDiv'>
                 <h1 style={{justifyContent:'center', display:'flex'}}>Confirm Information</h1>
                 <div className='engConfirmDiv'>
-                    <p><b>Firstname Lastname: </b> {this.props.firstname} {this.props.lastname}</p>
+                    <p><b>Full Name: </b> {this.props.firstname} {this.props.lastname}</p>
                     <p><b>Email: </b> {this.props.email}</p>
                     <p><b>Work: </b> {this.props.work}</p>
                     <p style={{paddingBottom: '75px'}}><b>Phone Number: </b> {this.props.phone}</p>

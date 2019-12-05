@@ -12,7 +12,7 @@ export default class SignUp extends React.Component {
                 <FaSignUpNavbar />
                 <img src={logo}/>
                 <div className='payText'>
-                    <p>.ثبت نام شما با عنوان ارسال مقاله موفقیت آمیز بود</p>
+                    <p>! مقاله شما با موفقیت ارسال شد</p>
                 </div>
                 <div className='informationDiv'>
                     <p><b>نام و نام خانوادگی :</b>     {this.props.firstname} {this.props.lastname}</p>

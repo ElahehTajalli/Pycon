@@ -12,15 +12,15 @@ export default class SignUp extends React.Component {
                 <EngSignUpNavbar />
                 <img src={logo}/>
                 <div className='payText'>
-                    <p>.ثبت نام شما با عنوان ارسال مقاله موفقیت آمیز بود</p>
+                    <p>Paper Registered Successfully</p>
                 </div>
                 <div className='informationDiv'>
                     <p><b>First Name Last Name :</b>     {this.props.firstname} {this.props.lastname}</p>
                     <p><b>Email :</b>     {this.props.email}</p>
-                    <p>    <b> : شناسه پرداخت</b></p>
+                    <p><b>Payment Id :</b></p>
 
                     <div className='buttonsDiv'>
-                        <button type='submit' className='prevButton'>چاپ رسید</button>
+                        <button type='submit' className='prevButton'>Print Receipt</button>
                         <Link to='/' className='prevButton'>Home</Link>
                     </div>
                 </div>  

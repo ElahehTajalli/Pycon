@@ -22,7 +22,7 @@ export default class SignUp extends React.Component {
                     <div className='buttonDiv'>
                         {/* <button type='submit' className='confirmPayButton confirmButton' onClick={() => this.handlePage()}>پرداخت</button> */}
                         <LinkTo to='/landingPage/' className='confirmPayButton confirmButton'>ثبت نام</LinkTo>
-                        <button type='submit' className='confirmButton'onClick={this.props.handleChange}>مرحله قبل</button>
+                        <button type='submit' className='confirmButton' onClick={this.props.handleChange}>مرحله قبل</button>
                     </div>
 
 

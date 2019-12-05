@@ -80,20 +80,19 @@ fieldset {
 }
 
 .lang {
-    display: inline;
-    margin-left: 2rem;
-    /* color: white; */
-    font-weight: bolder;
-    text-decoration: none;
-    position: absolute;
-    left: 0;
-    background-color: #facb30;
-    padding: 10px;
-    border-radius: 10px;
+  display: inline;
+  margin-left: 2rem;
+  color: #282828;
+  font-weight: bolder;
+  text-decoration: none;
+  position: absolute;
+  left: 0;
+  background-color: #facb30;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .lang:hover {
-  color: #fecb2f;
   cursor: pointer;
 }
 
@@ -256,6 +255,21 @@ fieldset {
 
 
 
+.errors {
+  color: red;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.errorss {
+  color: white;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+
 
 /* ..................................Sign up navbar.................................... */
 /* .................................................................................... */
@@ -270,7 +284,8 @@ fieldset {
 
     font-size: 13px;
     justify-content: flex-end !important;
-    background-color: #3671a2;
+    /* background-color: #3671a2; */
+    background-color: #282828;
     height: 60px;
     position: absolute;
     right: 0;
@@ -302,12 +317,15 @@ fieldset {
 .signUpLinks {
   text-decoration: none;
   color: white;
-  padding-right: 25px;
+  margin-right: 25px;
 }
 
 .signUpLinks:hover {
-  color: black;
   cursor: pointer;
+  background-color: #376a97;
+  color: white;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 
@@ -326,7 +344,7 @@ fieldset {
   justify-content: center;
   padding: 20px;
   padding-bottom: 30px;
-  height: 73vh;
+  height: 75vh;
 }
 
 
@@ -334,7 +352,7 @@ fieldset {
   position: absolute;
   background-color: white;
   z-index: 1;
-  height: 95vh;
+  height: 107vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -562,7 +580,7 @@ footer a {
 
 
 .navItem:hover {
-  color: white;
+  color: #fecb2f;
 }
 
 
@@ -646,7 +664,7 @@ footer a {
   position: absolute;
   background-color: white;
   z-index: 1;
-  height: 66vh;
+  height: 77vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -662,7 +680,7 @@ footer a {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  height: 45vh;
+  height: 50vh;
 }
 
 
