@@ -6,7 +6,8 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  en: state.en
+  en: state.en,
+  reqMethod: state.reqMethod
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
