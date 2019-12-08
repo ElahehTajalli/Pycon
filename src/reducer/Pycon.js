@@ -10,7 +10,8 @@ const initial = {
     postalCode: '',
     address: '',
     en: false ,
-    changeLang : 'en'
+    changeLang : 'en',
+    reqMethod: false  //false : post        //true : put
 }
 
 
@@ -45,7 +46,13 @@ const pycon = (state = initial, action) => {
                     en: action.en,
                     changeLang: action.changeLang
                 }    
-        
+            
+
+            case 'GET_REQ_METHOD':
+                return {
+                    ...state,
+                    reqMethod: action.reqMethod,
+                }    
 
         default:
             return state    

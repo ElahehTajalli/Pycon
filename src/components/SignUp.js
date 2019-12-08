@@ -6,6 +6,8 @@ import Slide from '@material-ui/core/Slide'
 import { getInformation } from '../action/Pycon'
 import { FaSignUpNavbar } from './mutliLang'
 import axios from 'axios'
+import { getReqMethod } from '../action/Pycon'
+
 
 
 
@@ -43,13 +45,9 @@ export default class SignUp extends React.Component {
         this.setState({ checked : !this.state.checked })
     }
 
-    handleChange () {
-        // this.setState({ checked : !this.state.checked })
-        // this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
-        //             ,this.state.eng_lastname, this.state.email, this.state.code, this.state.work, this.state.work
-        //             ,this.state.phone, this.state.postalCode, this.state.address)))
-        
 
+    handleChange () {
+        if(!this.props.reqMethod){
             axios.post('http://127.0.0.1:8000/user/registerIran/', {
                 name_fa: this.state.firstname,
                 username: this.state.username,
@@ -60,7 +58,7 @@ export default class SignUp extends React.Component {
                 address: this.state.address,
                 postalcode: this.state.postalCode,
                 email: this.state.email,
-              })
+                })
                 .then((response) => {
                     const errors = {
                         username: '',
@@ -73,13 +71,11 @@ export default class SignUp extends React.Component {
                         workplace: ''
                     }
                     this.setState({ errors: errors })
-                  this.setState({ checked : !this.state.checked })
-                  this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
+                    this.setState({ checked : !this.state.checked })
+                    this.props.dispatch((getReqMethod(true)))
+                    this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
                     ,this.state.eng_lastname, this.state.email, this.state.code, this.state.work, this.state.work
                     ,this.state.phone, this.state.postalCode, this.state.address)))
-        
-                //   window.localStorage.setItem('token', response.data.token)
-                //   this.props.history.push('/messenger/')
                 })
                 .catch((error) => {
                     let username=''
@@ -126,7 +122,84 @@ export default class SignUp extends React.Component {
                     }
                     this.setState({ errors: errors })
                     console.log(this.state.errors)
-                })    
+                })  
+        } else {
+            axios.put('http://127.0.0.1:8000/user/registerIran/', {
+                name_fa: this.state.firstname,
+                username: this.state.username,
+                name_en: this.state.eng_firstname,
+                codemli: this.state.code,
+                phonenum: this.state.phone,
+                workplace: this.state.work,
+                address: this.state.address,
+                postalcode: this.state.postalCode,
+                email: this.state.email,
+                })
+                .then((response) => {
+                    const errors = {
+                        username: '',
+                        email: '',
+                        phone: '',
+                        postalCode: '',
+                        code: '',
+                        name_fa: '',
+                        name_en: '',
+                        workplace: ''
+                    }
+                    this.setState({ errors: errors })
+                    this.setState({ checked : !this.state.checked })
+                    this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
+                    ,this.state.eng_lastname, this.state.email, this.state.code, this.state.work, this.state.work
+                    ,this.state.phone, this.state.postalCode, this.state.address)))
+
+                })
+                .catch((error) => {
+                    let username=''
+                    let email = ''
+                    let phone = ''
+                    let postalCode = ''
+                    let code = ''
+                    let name_fa = ''
+                    let name_en = ''
+                    let workplace = ''
+                    if (error.response.data.username !== undefined) {
+                        username = error.response.data.username[0]
+                    }
+                    if (error.response.data.email !== undefined) {
+                        email = error.response.data.email[0]
+                    }
+                    if (error.response.data.phonenum !== undefined) {
+                        phone = error.response.data.phonenum[0]
+                    }
+                    if (error.response.data.postalcode !== undefined) {
+                        postalCode = error.response.data.postalcode[0]
+                    }
+                    if (error.response.data.codemli !== undefined) {
+                        code = error.response.data.codemli[0]
+                    }
+                    if (error.response.data.name_fa !== undefined) {
+                        name_fa = error.response.data.name_fa[0]
+                    }
+                    if (error.response.data.name_en !== undefined) {
+                        name_en = error.response.data.name_en[0]
+                    }
+                    if (error.response.data.workplace !== undefined) {
+                        workplace = error.response.data.workplace[0]
+                    }
+                    const errors = {
+                        username: username,
+                        email: email,
+                        phone: phone,
+                        postalCode: postalCode,
+                        code: code,
+                        name_fa: name_fa,
+                        name_en: name_en,
+                        workplace: workplace
+                    }
+                    this.setState({ errors: errors })
+                    console.log(this.state.errors)
+                })  
+        }      
 
     }
 

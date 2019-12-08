@@ -26,3 +26,9 @@ export const getInformation = (firstname, lastname, eng_firstname, eng_lastname,
     en: en,
     changeLang: changeLang
   })
+
+
+  export const getReqMethod = (reqMethod) => ({
+    type: 'GET_REQ_METHOD',
+    reqMethod: reqMethod
+  })
