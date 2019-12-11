@@ -1,4 +1,3 @@
-import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import logo from '../photos/signUpLogo.svg'
 import ConfirmInfo from '../components/ConfirmInfo'
@@ -6,211 +5,157 @@ import Slide from '@material-ui/core/Slide'
 import { getInformation } from '../action/Pycon'
 import { FaSignUpNavbar } from './mutliLang'
 import axios from 'axios'
-import { getReqMethod } from '../action/Pycon'
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { useSelector, useDispatch } from "react-redux";
 
 
 
+const useStyles = makeStyles(theme => ({
+    formControl: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(1),
+      minWidth: 120
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
 
-export default class SignUp extends React.Component {
-    constructor() {
-        super()
+    },
+  }));
 
-        this.state = {
-            checked : false,
-            firstname: '',
-            lastname: '',
-            eng_firstname: '',
-            eng_lastname: '',
-            email: '',
-            code: '',
-            work: '',
-            phone: '',
-            postalCode: '',
-            address: '',
-            username: '',
-            errors : {
-                username: '',
-                email: '',
-                phone: '',
-                postalCode: '',
-                code: '',
-                name_fa: '',
-                name_en: '',
-                workplace: ''
-            }
-        }
+export default function SignUp(){
+    const classes = useStyles();
+    const inputLabel = React.useRef(null);
+    const [labelWidth, setLabelWidth] = React.useState(0);
+    React.useEffect(() => {
+    setLabelWidth(inputLabel.current.offsetWidth);
+    }, []);
+
+    const handleChanges = event => {
+        setParticipant(event.target.value);
+    };
+    const dispatch = useDispatch();
+    const [checked, setChecked] = useState(false);
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [eng_firstname, setEng_firstname] = useState('');
+    const [eng_lastname, setEng_lastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [code, setCode] = useState('');
+    const [work, setWork] = useState('');
+    const [phone, setPhone] = useState('');
+    const [postalCode, setPostalCode] = useState('');
+    const [address, setAddress] = useState('');
+    const [username, setUsername] = useState('');
+    const [participant, setParticipant] = useState('');
+    const [errors, setErrors] = useState(
+        {username: '', 
+        email: '', 
+        phone:'',
+        postalCode: '',
+        code: '',
+        name_fa: '',
+        name_en: '',
+        workplace: ''
+    });
+
+  
+    const setJobChange = (event) => {
+      setParticipant(event.target.value);
     }
 
-    back() {
-        this.setState({ checked : !this.state.checked })
+    const back = () => {
+        setChecked(!checked)
     }
 
 
-    handleChange () {
-        if(!this.props.reqMethod){
-            axios.post('http://127.0.0.1:8000/user/registerIran/', {
-                name_fa: this.state.firstname,
-                username: this.state.username,
-                name_en: this.state.eng_firstname,
-                codemli: this.state.code,
-                phonenum: this.state.phone,
-                workplace: this.state.work,
-                address: this.state.address,
-                postalcode: this.state.postalCode,
-                email: this.state.email,
-                })
-                .then((response) => {
-                    const errors = {
-                        username: '',
-                        email: '',
-                        phone: '',
-                        postalCode: '',
-                        code: '',
-                        name_fa: '',
-                        name_en: '',
-                        workplace: ''
-                    }
-                    this.setState({ errors: errors })
-                    this.setState({ checked : !this.state.checked })
-                    this.props.dispatch((getReqMethod(true)))
-                    this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
-                    ,this.state.eng_lastname, this.state.email, this.state.code, this.state.work, this.state.work
-                    ,this.state.phone, this.state.postalCode, this.state.address)))
-                })
-                .catch((error) => {
-                    let username=''
-                    let email = ''
-                    let phone = ''
-                    let postalCode = ''
-                    let code = ''
-                    let name_fa = ''
-                    let name_en = ''
-                    let workplace = ''
-                    if (error.response.data.username !== undefined) {
-                        username = error.response.data.username[0]
-                    }
-                    if (error.response.data.email !== undefined) {
-                        email = error.response.data.email[0]
-                    }
-                    if (error.response.data.phonenum !== undefined) {
-                        phone = error.response.data.phonenum[0]
-                    }
-                    if (error.response.data.postalcode !== undefined) {
-                        postalCode = error.response.data.postalcode[0]
-                    }
-                    if (error.response.data.codemli !== undefined) {
-                        code = error.response.data.codemli[0]
-                    }
-                    if (error.response.data.name_fa !== undefined) {
-                        name_fa = error.response.data.name_fa[0]
-                    }
-                    if (error.response.data.name_en !== undefined) {
-                        name_en = error.response.data.name_en[0]
-                    }
-                    if (error.response.data.workplace !== undefined) {
-                        workplace = error.response.data.workplace[0]
-                    }
-                    const errors = {
-                        username: username,
-                        email: email,
-                        phone: phone,
-                        postalCode: postalCode,
-                        code: code,
-                        name_fa: name_fa,
-                        name_en: name_en,
-                        workplace: workplace
-                    }
-                    this.setState({ errors: errors })
-                    console.log(this.state.errors)
-                })  
-        } else {
-            axios.put('http://127.0.0.1:8000/user/registerIran/', {
-                name_fa: this.state.firstname,
-                username: this.state.username,
-                name_en: this.state.eng_firstname,
-                codemli: this.state.code,
-                phonenum: this.state.phone,
-                workplace: this.state.work,
-                address: this.state.address,
-                postalcode: this.state.postalCode,
-                email: this.state.email,
-                })
-                .then((response) => {
-                    const errors = {
-                        username: '',
-                        email: '',
-                        phone: '',
-                        postalCode: '',
-                        code: '',
-                        name_fa: '',
-                        name_en: '',
-                        workplace: ''
-                    }
-                    this.setState({ errors: errors })
-                    this.setState({ checked : !this.state.checked })
-                    this.props.dispatch((getInformation(this.state.firstname, this.state.lastname, this.state.eng_firstname
-                    ,this.state.eng_lastname, this.state.email, this.state.code, this.state.work, this.state.work
-                    ,this.state.phone, this.state.postalCode, this.state.address)))
-
-                })
-                .catch((error) => {
-                    let username=''
-                    let email = ''
-                    let phone = ''
-                    let postalCode = ''
-                    let code = ''
-                    let name_fa = ''
-                    let name_en = ''
-                    let workplace = ''
-                    if (error.response.data.username !== undefined) {
-                        username = error.response.data.username[0]
-                    }
-                    if (error.response.data.email !== undefined) {
-                        email = error.response.data.email[0]
-                    }
-                    if (error.response.data.phonenum !== undefined) {
-                        phone = error.response.data.phonenum[0]
-                    }
-                    if (error.response.data.postalcode !== undefined) {
-                        postalCode = error.response.data.postalcode[0]
-                    }
-                    if (error.response.data.codemli !== undefined) {
-                        code = error.response.data.codemli[0]
-                    }
-                    if (error.response.data.name_fa !== undefined) {
-                        name_fa = error.response.data.name_fa[0]
-                    }
-                    if (error.response.data.name_en !== undefined) {
-                        name_en = error.response.data.name_en[0]
-                    }
-                    if (error.response.data.workplace !== undefined) {
-                        workplace = error.response.data.workplace[0]
-                    }
-                    const errors = {
-                        username: username,
-                        email: email,
-                        phone: phone,
-                        postalCode: postalCode,
-                        code: code,
-                        name_fa: name_fa,
-                        name_en: name_en,
-                        workplace: workplace
-                    }
-                    this.setState({ errors: errors })
-                    console.log(this.state.errors)
-                })  
-        }      
-
+    const handleChange = () => {
+        setChecked(!checked);
+        dispatch((getInformation({firstname}, {lastname}, {eng_firstname}
+        ,{eng_lastname}, {email}, {code}, {work}
+        ,{phone}, {postalCode}, {address})))
+        // axios.post('http://127.0.0.1:8000/user/registerIran/', {
+        //     name_fa: {firstname},
+        //     username: {username},
+        //     name_en: {eng_firstname},
+        //     codemli: {code},
+        //     phonenum: {phone},
+        //     workplace: {work},
+        //     address: {address},
+        //     postalcode: {postalCode},
+        //     email: {email},
+        //     })
+        //     .then((response) => {
+        //         const errors = {
+        //             username: '',
+        //             email: '',
+        //             phone: '',
+        //             postalCode: '',
+        //             code: '',
+        //             name_fa: '',
+        //             name_en: '',
+        //             workplace: ''
+        //         }
+        //         setErrors(errors)
+        //         setChecked(!this.state.checked)
+        //         this.props.dispatch((getInformation({firstname}, {lastname}, {eng_firstname}
+        //         ,{eng_lastname}, {email}, {code}, {work}
+        //         ,{phone}, {postalCode}, {address})))
+        //     })
+        //     .catch((error) => {
+        //         let username=''
+        //         let email = ''
+        //         let phone = ''
+        //         let postalCode = ''
+        //         let code = ''
+        //         let name_fa = ''
+        //         let name_en = ''
+        //         let workplace = ''
+        //         if (error.response.data.username !== undefined) {
+        //             username = error.response.data.username[0]
+        //         }
+        //         if (error.response.data.email !== undefined) {
+        //             email = error.response.data.email[0]
+        //         }
+        //         if (error.response.data.phonenum !== undefined) {
+        //             phone = error.response.data.phonenum[0]
+        //         }
+        //         if (error.response.data.postalcode !== undefined) {
+        //             postalCode = error.response.data.postalcode[0]
+        //         }
+        //         if (error.response.data.codemli !== undefined) {
+        //             code = error.response.data.codemli[0]
+        //         }
+        //         if (error.response.data.name_fa !== undefined) {
+        //             name_fa = error.response.data.name_fa[0]
+        //         }
+        //         if (error.response.data.name_en !== undefined) {
+        //             name_en = error.response.data.name_en[0]
+        //         }
+        //         if (error.response.data.workplace !== undefined) {
+        //             workplace = error.response.data.workplace[0]
+        //         }
+        //         const errors = {
+        //             username: username,
+        //             email: email,
+        //             phone: phone,
+        //             postalCode: postalCode,
+        //             code: code,
+        //             name_fa: name_fa,
+        //             name_en: name_en,
+        //             workplace: workplace
+        //         }
+        //         setErrors(errors)
+        //         console.log({errors})
+        //     })     
     }
 
-    changeInput (e) {
-        const name = e.target.name
-        this.setState({ [name]: e.target.value})
-    }
-    
-
-
-    render () {
         return (
             <div className='signUpDiv'>
                 {/* <div className='signUpLogo'/> */}
@@ -232,11 +177,11 @@ export default class SignUp extends React.Component {
                                         fontFamily: 'Vazir'
                                     },
                                 }}
-                                onChange={(e)=> this.changeInput(e)}
+                                onChange={(e)=> setLastname(e.target.value)}
 
                             />
-                            { this.state.errors.name_fa &&
-                                <p className='errorss'>{this.state.errors.name_fa}</p>
+                            { errors.name_fa &&
+                                <p className='errorss'>{errors.name_fa}</p>
                                 }
                             </div>
                         <div>
@@ -252,11 +197,11 @@ export default class SignUp extends React.Component {
                                         fontFamily: 'Vazir'
                                     },
                                 }}
-                                onChange={(e)=> this.changeInput(e)}
+                                onChange={(e)=> setFirstname(e.target.value)}
 
                             />
-                            { this.state.errors.name_fa &&
-                            <p className='errors'>{this.state.errors.name_fa}</p>
+                            { errors.name_fa &&
+                            <p className='errors'>{errors.name_fa}</p>
                             }
                         </div>
                     </div>
@@ -274,11 +219,11 @@ export default class SignUp extends React.Component {
                                         fontFamily: 'Vazir'
                                     },
                                 }}
-                                onChange={(e)=> this.changeInput(e)}
+                                onChange={(e)=> setEng_firstname(e.target.value)}
 
                             />
-                            { this.state.errors.name_en &&
-                            <p className='errors'>{this.state.errors.name_en}</p>
+                            { errors.name_en &&
+                            <p className='errors'>{errors.name_en}</p>
                             }
                         </div>
                         <div>
@@ -294,11 +239,11 @@ export default class SignUp extends React.Component {
                                         fontFamily: 'Vazir'
                                     },
                                 }}
-                                onChange={(e)=> this.changeInput(e)}
+                                onChange={(e)=> setEng_lastname(e.target.value)}
 
                             />
-                            { this.state.errors.name_en &&
-                                <p className='errorss'>{this.state.errors.name_en}</p>
+                            { errors.name_en &&
+                                <p className='errorss'>{errors.name_en}</p>
                             }
                         </div>
                     </div>
@@ -315,10 +260,10 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir'
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setUsername(e.target.value)}
                         />
-                        { this.state.errors.username &&
-                        <p className='errors'>{this.state.errors.username}</p>
+                        { errors.username &&
+                        <p className='errors'>{errors.username}</p>
                         }
                         <TextField
                             // id="outlined-email-input"
@@ -333,11 +278,11 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir'
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setEmail(e.target.value)}
 
                         />
-                        { this.state.errors.email &&
-                            <p className='errors'>{this.state.errors.email}</p>
+                        { errors.email &&
+                            <p className='errors'>{errors.email}</p>
                         }
                         <TextField
                             // id="outlined-email-input"
@@ -351,11 +296,11 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir'
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setCode(e.target.value)}
 
                         />
-                        { this.state.errors.code &&
-                            <p className='errors'>{this.state.errors.code}</p>
+                        { errors.code &&
+                            <p className='errors'>{errors.code}</p>
                         }
                         <TextField
                                 id="outlined-email-input"
@@ -369,11 +314,11 @@ export default class SignUp extends React.Component {
                                         fontFamily: 'Vazir'
                                     },
                                 }}
-                                onChange={(e)=> this.changeInput(e)}
+                                onChange={(e)=> setWork(e.target.value)}
 
                         />
-                        { this.state.errors.workplace &&
-                        <p className='errors'>{this.state.errors.workplace}</p>
+                        { errors.workplace &&
+                        <p className='errors'>{errors.workplace}</p>
                         }
                         <TextField
                             id="outlined-email-input"
@@ -387,11 +332,11 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir'
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setPhone(e.target.value)}
 
                         />
-                        { this.state.errors.phone &&
-                            <p className='errors'>{this.state.errors.phone}</p>
+                        { errors.phone &&
+                            <p className='errors'>{errors.phone}</p>
                         }
                         <TextField
                             id="outlined-email-input"
@@ -405,11 +350,11 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir',
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setPostalCode(e.target.value)}
 
                         />
-                        { this.state.errors.postalCode &&
-                            <p className='errors'>{this.state.errors.postalCode}</p>
+                        { errors.postalCode &&
+                            <p className='errors'>{errors.postalCode}</p>
                         }
                         <TextField
                             id="outlined-dense-multiline"
@@ -424,29 +369,101 @@ export default class SignUp extends React.Component {
                                     fontFamily: 'Vazir'
                                 },
                             }}
-                            onChange={(e)=> this.changeInput(e)}
+                            onChange={(e)=> setAddress(e.target.value)}
                         />
+                        <FormControl variant="outlined" className={classes.formControl}>
+                            <InputLabel style={{fontFamily: 'Vazir'}} ref={inputLabel} id="demo-simple-select-outlined-label">
+                            نوع شرکت کننده
+                            </InputLabel>
+                            <Select
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            value={participant}
+                            onChange={handleChanges}
+                            labelWidth={labelWidth}
+                            >
+                                <MenuItem value={0} style={{fontFamily: 'Vazir'}}>شرکت گنندگان آزاد</MenuItem>
+                                <MenuItem value={1} style={{fontFamily: 'Vazir'}}>سازمان ها و شرکت ها</MenuItem>
+                                <MenuItem value={2} style={{fontFamily: 'Vazir'}}>دانشجویان دانشگاه ها</MenuItem>
+                            </Select>
+                        </FormControl>
+                        {participant==2 &&
+                            <>
+                                <TextField
+                                id="outlined-email-input"
+                                label="نام دانشگاه"
+                                type="text"
+                                margin="normal"
+                                variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir',
+                                    },
+                                }}
+                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                />
+                                <TextField
+                                label="شماره دانشجویی"
+                                type="text"
+                                margin="normal"
+                                variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir',
+                                    },
+                                }}
+                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                />
+                            </>
+                        }
+                        {participant==1 &&
+                            <>
+                                <TextField
+                                id="outlined-email-input"
+                                label="نام شرکت"
+                                type="text"
+                                margin="normal"
+                                variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir',
+                                    },
+                                }}
+                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                />
+                                <TextField
+                                label="شماره تلفن شرکت"
+                                type="phone"
+                                margin="normal"
+                                variant="outlined"
+                                InputLabelProps={{
+                                    style: {
+                                        fontFamily: 'Vazir',
+                                    },
+                                }}
+                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                />
+                            </>
+                        }
                     </div>
-                    <button type='submit' className='nextButton' onClick={()=> this.handleChange()}>مرحله بعد</button>
-                    <Slide direction="left" in={this.state.checked} mountOnEnter unmountOnExit>
+                    <button type='submit' className='nextButton' onClick={()=> handleChange()}>مرحله بعد</button>
+                    <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
                         <ConfirmInfo
-                            firstname={this.state.firstname}
-                            lastname={this.state.lastname}
-                            eng_firstname={this.state.eng_firstname}
-                            eng_lastname={this.state.eng_lastname}
-                            email={this.state.email}
-                            code={this.state.code}
-                            work={this.state.work}
-                            phone={this.state.phone}
-                            postalCode={this.state.postalCode}
-                            address={this.state.address}
-                            handleChange={()=>this.back()}
+                            firstname={firstname}
+                            lastname={lastname}
+                            eng_firstname={eng_firstname}
+                            eng_lastname={eng_lastname}
+                            email={email}
+                            code={code}
+                            work={work}
+                            phone={phone}
+                            postalCode={postalCode}
+                            address={address}
+                            handleChange={()=>back()}
                         />
                     </Slide>
                 </div>
                 
             </div>
-        )   
-}
-    
-}
+        )
+                        }

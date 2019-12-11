@@ -270,6 +270,17 @@ fieldset {
 }
 
 
+.MuiOutlinedInput-inputMultiline {
+  padding: 7px !important;
+}
+
+
+.MuiFormControl-marginDense {
+  margin-top: 15px !important;
+  margin-bottom: 0 !important;
+}
+
+
 
 /* ..................................Sign up navbar.................................... */
 /* .................................................................................... */

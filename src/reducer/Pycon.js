@@ -48,11 +48,11 @@ const pycon = (state = initial, action) => {
                 }    
             
 
-            case 'GET_REQ_METHOD':
-                return {
-                    ...state,
-                    reqMethod: action.reqMethod,
-                }    
+            // case 'GET_REQ_METHOD':
+            //     return {
+            //         ...state,
+            //         reqMethod: action.reqMethod,
+            //     }    
 
         default:
             return state    
