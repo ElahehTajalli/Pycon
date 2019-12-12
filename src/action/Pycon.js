@@ -1,4 +1,5 @@
-export const getInformation = (firstname, lastname, eng_firstname, eng_lastname, email, code, work, phone, postalCode, address) => ({
+export const getInformation = (firstname, lastname, eng_firstname, eng_lastname, email,
+  code, work, phone, postalCode, address, uniName, studentId, workplaceName, workplacePhone ) => ({
     type: 'GET_INFORMATION',
     firstname: firstname,
     lastname: lastname,
@@ -9,7 +10,11 @@ export const getInformation = (firstname, lastname, eng_firstname, eng_lastname,
     work: work,
     phone: phone,
     postalCode: postalCode,
-    address: address
+    address: address,
+    uniName: uniName,
+    studentId: studentId,
+    workplaceName: workplaceName,
+    workplacePhone: workplacePhone
   })
 
 

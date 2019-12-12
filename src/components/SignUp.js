@@ -13,6 +13,9 @@ import Select from '@material-ui/core/Select';
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from "react-redux";
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
 
 
 
@@ -48,12 +51,22 @@ export default function SignUp(){
     const [eng_lastname, setEng_lastname] = useState('');
     const [email, setEmail] = useState('');
     const [code, setCode] = useState('');
-    const [work, setWork] = useState('');
     const [phone, setPhone] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [address, setAddress] = useState('');
     const [username, setUsername] = useState('');
     const [participant, setParticipant] = useState('');
+    const [workplaceName, setWorkPlaceName] = useState('');
+    const [workplacePhone, setWorkPlacePhone] = useState('');
+    const [uniName, setUniName] = useState('');
+    const [studentId, setStudentId] = useState('');
+    const [state, setState] = React.useState({
+        checkedA: true,
+        checkedB: true,
+      });
+
+
+
     const [errors, setErrors] = useState(
         {username: '', 
         email: '', 
@@ -62,7 +75,11 @@ export default function SignUp(){
         code: '',
         name_fa: '',
         name_en: '',
-        workplace: ''
+        workplaceName: '',
+        workplacePhone: '',
+        uniName: '',
+        studentId: '',
+        participantType: ''
     });
 
   
@@ -74,19 +91,21 @@ export default function SignUp(){
         setChecked(!checked)
     }
 
+    const checkBox = name => event => {
+        setState({ ...state, [name]: event.target.checked });
+      };
+
 
     const handleChange = () => {
         setChecked(!checked);
-        dispatch((getInformation({firstname}, {lastname}, {eng_firstname}
-        ,{eng_lastname}, {email}, {code}, {work}
-        ,{phone}, {postalCode}, {address})))
+        dispatch((getInformation(firstname, lastname, eng_firstname
+        ,eng_lastname, email, code ,phone, postalCode, address, uniName, studentId, workplaceName, workplacePhone)))
         // axios.post('http://127.0.0.1:8000/user/registerIran/', {
         //     name_fa: {firstname},
         //     username: {username},
         //     name_en: {eng_firstname},
         //     codemli: {code},
         //     phonenum: {phone},
-        //     workplace: {work},
         //     address: {address},
         //     postalcode: {postalCode},
         //     email: {email},
@@ -303,24 +322,6 @@ export default function SignUp(){
                             <p className='errors'>{errors.code}</p>
                         }
                         <TextField
-                                id="outlined-email-input"
-                                label="محل کار یا تحصیل"
-                                type="text"
-                                name="work"
-                                margin="normal"
-                                variant="outlined"
-                                InputLabelProps={{
-                                    style: {
-                                        fontFamily: 'Vazir'
-                                    },
-                                }}
-                                onChange={(e)=> setWork(e.target.value)}
-
-                        />
-                        { errors.workplace &&
-                        <p className='errors'>{errors.workplace}</p>
-                        }
-                        <TextField
                             id="outlined-email-input"
                             label="شماره تماس"
                             type="tel"
@@ -382,9 +383,18 @@ export default function SignUp(){
                             onChange={handleChanges}
                             labelWidth={labelWidth}
                             >
-                                <MenuItem value={0} style={{fontFamily: 'Vazir'}}>شرکت گنندگان آزاد</MenuItem>
-                                <MenuItem value={1} style={{fontFamily: 'Vazir'}}>سازمان ها و شرکت ها</MenuItem>
-                                <MenuItem value={2} style={{fontFamily: 'Vazir'}}>دانشجویان دانشگاه ها</MenuItem>
+                                <MenuItem
+                                    value={0}
+                                    onChange={()=> setParticipant(0)}
+                                    style={{fontFamily: 'Vazir'}}>شرکت گنندگان آزاد</MenuItem>
+                                <MenuItem
+                                    value={1}
+                                    onChange={()=> setParticipant(1)}
+                                    style={{fontFamily: 'Vazir'}}>سازمان ها و شرکت ها</MenuItem>
+                                <MenuItem
+                                    value={2}
+                                    onChange={()=> setParticipant(2)}
+                                    style={{fontFamily: 'Vazir'}}>دانشجویان دانشگاه ها</MenuItem>
                             </Select>
                         </FormControl>
                         {participant==2 &&
@@ -400,7 +410,7 @@ export default function SignUp(){
                                         fontFamily: 'Vazir',
                                     },
                                 }}
-                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                onChange={(e)=> setUniName(e.target.value)}
                                 />
                                 <TextField
                                 label="شماره دانشجویی"
@@ -412,7 +422,7 @@ export default function SignUp(){
                                         fontFamily: 'Vazir',
                                     },
                                 }}
-                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                onChange={(e)=> setStudentId(e.target.value)}
                                 />
                             </>
                         }
@@ -429,7 +439,7 @@ export default function SignUp(){
                                         fontFamily: 'Vazir',
                                     },
                                 }}
-                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                onChange={(e)=> setWorkPlaceName(e.target.value)}
                                 />
                                 <TextField
                                 label="شماره تلفن شرکت"
@@ -441,11 +451,40 @@ export default function SignUp(){
                                         fontFamily: 'Vazir',
                                     },
                                 }}
-                                // onChange={(e)=> setPostalCode(e.target.value)}
+                                onChange={(e)=> setWorkPlacePhone(e.target.value)}
                                 />
                             </>
                         }
                     </div>
+                    <div className='program'>
+                        <p style={{fontSize: '18px'}}><b>:شرکت در </b></p>
+                        <FormGroup row>
+                            <FormControlLabel
+                                control={
+                                <Checkbox
+                                    checked={state.checkedB}
+                                    onChange={checkBox('checkedB')}
+                                    value="checkedB"
+                                    color="primary"
+                                />
+                                }
+                                label="روز دوم"
+                            />  
+                            <FormControlLabel
+                                control={
+                                <Checkbox
+                                    checked={state.checkedA}
+                                    onChange={checkBox('checkedA')}
+                                    value="checkedA"
+                                    color="primary"
+                                />
+                                }
+                                label="روز اول"
+                            />
+                            
+                        </FormGroup>
+                    </div>
+                    <a className='programLink' target='_blank' href="/#section5">جهت مشاهده برنامه اینجا کلیک کنید *</a>
                     <button type='submit' className='nextButton' onClick={()=> handleChange()}>مرحله بعد</button>
                     <Slide direction="left" in={checked} mountOnEnter unmountOnExit>
                         <ConfirmInfo
@@ -455,10 +494,14 @@ export default function SignUp(){
                             eng_lastname={eng_lastname}
                             email={email}
                             code={code}
-                            work={work}
                             phone={phone}
                             postalCode={postalCode}
                             address={address}
+                            uniName={uniName}
+                            studentId={studentId}
+                            workplaceName={workplaceName}
+                            workplacePhone={workplacePhone}
+                            participant={participant}
                             handleChange={()=>back()}
                         />
                     </Slide>

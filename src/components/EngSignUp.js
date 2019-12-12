@@ -26,6 +26,7 @@ export default class EngSignUp extends React.Component {
             phone: '',
             postalCode: '',
             address: '',
+            register: false,
             errors : {
                 username :'',
                 email: '',
@@ -36,61 +37,69 @@ export default class EngSignUp extends React.Component {
         }
     }
 
+    register() {
+        this.setState({register: true})
+    }
+
+
     back() {
         this.setState({ checked : !this.state.checked })
     }
 
     handleChange () {
-            axios.post('http://127.0.0.1:8000/user/registerForeign/', {
-                username: this.state.username,
-                name_en: this.state.firstname,
-                phonenum: this.state.phone,
-                workplace: this.state.work,
-                email: this.state.email,
-              })
-                .then((response) => {
-                    const errors = {
-                        username: '',
-                        email: '',
-                        phone: '',
-                        name_en: '',
-                        workplace: ''
-                    }
-                    this.setState({ checked : !this.state.checked , errors })
+        this.setState({ checked : !this.state.checked, register: false })
                     this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
                     this.state.email, this.state.work, this.state.work, this.state.phone)))
+            // axios.post('http://127.0.0.1:8000/user/registerForeign/', {
+            //     username: this.state.username,
+            //     name_en: this.state.firstname,
+            //     phonenum: this.state.phone,
+            //     workplace: this.state.work,
+            //     email: this.state.email,
+            //   })
+            //     .then((response) => {
+            //         const errors = {
+            //             username: '',
+            //             email: '',
+            //             phone: '',
+            //             name_en: '',
+            //             workplace: ''
+            //         }
+            //         this.setState({ checked : !this.state.checked , errors , register: false })
+            //         this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
+            //         this.state.email, this.state.work, this.state.work, this.state.phone)))
 
-                })
-                .catch((error) => {
-                    let username=''
-                    let email = ''
-                    let phone = ''
-                    let name_en = ''
-                    let workplace = ''
-                    if (error.response.data.username !== undefined) {
-                        username = error.response.data.username[0]
-                    }
-                    if (error.response.data.email !== undefined) {
-                        email = error.response.data.email[0]
-                    }
-                    if (error.response.data.phonenum !== undefined) {
-                        phone = error.response.data.phonenum[0]
-                    }
-                    if (error.response.data.name_en !== undefined) {
-                        name_en = error.response.data.name_en[0]
-                    }
-                    if (error.response.data.workplace !== undefined) {
-                        workplace = error.response.data.workplace[0]
-                    }
-                    const errors = {
-                        username: username,
-                        email: email,
-                        phone: phone,
-                        name_en: name_en,
-                        workplace: workplace
-                    }
-                    this.setState({ errors: errors })
-                })    
+            //     })
+            //     .catch((error) => {
+            //         let username=''
+            //         let email = ''
+            //         let phone = ''
+            //         let name_en = ''
+            //         let workplace = ''
+            //         if (error.response.data.username !== undefined) {
+            //             username = error.response.data.username[0]
+            //         }
+            //         if (error.response.data.email !== undefined) {
+            //             email = error.response.data.email[0]
+            //         }
+            //         if (error.response.data.phonenum !== undefined) {
+            //             phone = error.response.data.phonenum[0]
+            //         }
+            //         if (error.response.data.name_en !== undefined) {
+            //             name_en = error.response.data.name_en[0]
+            //         }
+            //         if (error.response.data.workplace !== undefined) {
+            //             workplace = error.response.data.workplace[0]
+            //         }
+            //         const errors = {
+            //             username: username,
+            //             email: email,
+            //             phone: phone,
+            //             name_en: name_en,
+            //             workplace: workplace
+            //         }
+            //         this.setState({ errors: errors })
+            //     })    
     
     }
 
@@ -107,6 +116,11 @@ export default class EngSignUp extends React.Component {
                 {/* <div className='signUpLogo'/> */}
                 <EngSignUpNavbar />
                 <img src={logo}/>
+                {this.state.register &&
+                    <div className='payText'>
+                        <p>Your registration was successful !</p>
+                    </div>
+                }
                 <h1>Sign Up</h1>
                 <div className='infoDiv'>
                     <div className='nameDiv'>
@@ -169,7 +183,7 @@ export default class EngSignUp extends React.Component {
                         }
                         <TextField
                                 id="outlined-email-input"
-                                label="Work"
+                                label="Affiliation"
                                 type="text"
                                 name="work"
                                 margin="normal"
@@ -204,6 +218,8 @@ export default class EngSignUp extends React.Component {
                             work={this.state.work}
                             phone={this.state.phone}
                             handleChange={()=>this.back()}
+                            register={()=>this.register()}
+                            registerField={this.state.register}
                         />
                     </Slide>
                 </div>

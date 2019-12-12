@@ -281,6 +281,29 @@ fieldset {
 }
 
 
+.program {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.programLink {
+  text-decoration: none;
+  font-size: 14px;
+  color: red;
+}
+
+.MuiTypography-body1 {
+  font-family: 'Vazir' !important;
+}
+
+.MuiInputBase-root {
+  font-family: 'Vazir' !important;
+
+}
+
+
 
 /* ..................................Sign up navbar.................................... */
 /* .................................................................................... */
@@ -355,7 +378,7 @@ fieldset {
   justify-content: center;
   padding: 20px;
   padding-bottom: 30px;
-  height: 75vh;
+  height: 85vh;
 }
 
 
@@ -363,7 +386,7 @@ fieldset {
   position: absolute;
   background-color: white;
   z-index: 1;
-  height: 107vh;
+  height: 139vh;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -430,7 +453,8 @@ body {
 h1 {
 	letter-spacing: 2px;
 	text-align: center;
-	text-transform: uppercase;
+  text-transform: uppercase;
+  padding-top: 30px;
 }
 
 .countdown-wrapper {
@@ -512,7 +536,7 @@ footer a {
   color: white;
   font-weight: bold;
   font-size: 20px;
-  margin: 50px 0px 10px 0px;
+  margin: 50px 0px -20px 0px;
 }
 
 
@@ -640,13 +664,15 @@ footer a {
 .upload-btn-wrapper input[type=text] {
   border: 1px solid #c4c4c4;
   position: relative;
-  width: 222px;
+  width: 205px;
   height: 53px;
   border-radius: 27px;
   margin-top: 16px;
   background-color: white;
   padding: 0px 14px;
 }
+/* your registarion was successfully
+your submituin was succesfully */
 
 .upload-btn-wrapper input[type=text]::placeholder {
   font-size: 15px;

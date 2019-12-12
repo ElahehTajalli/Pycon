@@ -29,7 +29,11 @@ const pycon = (state = initial, action) => {
                 work: action.work,
                 phone: action.phone,
                 postalCode: action.postalCode,
-                address: action.address
+                address: action.address,
+                uniName: action.uniName,
+                studentId: action.studentId,
+                workplaceName: action.workplaceName,
+                workplacePhone: action.workplacePhone
             }
 
             case 'GET_INFORMATION_ARTICLE':

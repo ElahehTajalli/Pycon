@@ -14,6 +14,8 @@ export default class SignUp extends React.Component {
 
 
     render () {
+        console.log(this.props.firstname)
+
         return (
             <div className='signUpDiv'>
                 <FaSignUpNavbar />
@@ -30,11 +32,7 @@ export default class SignUp extends React.Component {
                         <button type='submit' className='prevButton'>چاپ رسید</button>
                         <Link to='/' className='prevButton'>صفحه اصلی</Link>
                     </div>
-                </div>
-                
-                
-
-                
+                </div>   
             </div>
         )   
 }

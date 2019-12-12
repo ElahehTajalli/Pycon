@@ -22,19 +22,22 @@ export default class SignUp extends React.Component {
             code: '',
             work: '',
             phone: '',
-            nameOfFile: ''
+            nameOfFile: '',
+            submit: false
         }
     }
 
+
     handleChange () {
-        this.setState({ checked : !this.state.checked })
+        this.setState({ checked : !this.state.checked, submit: true })
         this.props.dispatch((getInformationArticle(this.state.firstname, this.state.lastname, this.state.email)))
+        console.log(this.state)
 
     }
 
     changeInput (e) {
         const name = e.target.name
-        this.setState({ [name]: e.target.value})
+        this.setState({ [name]: e.target.value })
     }
 
 
@@ -47,10 +50,16 @@ export default class SignUp extends React.Component {
 
 
     render () {
+        console.log(this.state)
         return (
             <div className='signUpDiv'>
                 <EngSignUpNavbar />
                 <img src={logo}/>
+                {this.state.submit &&
+                    <div className='payText'>
+                        <p>Your submission was successful !</p>
+                    </div>
+                }
                 <h1>Submit Paper</h1>
                 <div className='infoDiv'>
                     <div className='nameDiv'>
@@ -97,7 +106,7 @@ export default class SignUp extends React.Component {
                         />
                         <TextField
                                 id="outlined-email-input"
-                                label="Work"
+                                label="Affiliation"
                                 type="text"
                                 name="work"
                                 margin="normal"
@@ -121,7 +130,7 @@ export default class SignUp extends React.Component {
                         <input type="file" name="myfile" id="fileInput" onChange={() => this.showname()} />
                         <input type="text" value={this.state.nameOfFile} onChange={() => this.showname()} disabled placeholder='Upload Article'/>
                     </div>
-                    <Link to='/enArticleLandingPage/' className='nextButton' onClick={()=> this.handleChange()}>Pay</Link>
+                    <Link to='/enArticles/' className='nextButton' onClick={()=> this.handleChange()}>Send</Link>
                 </div>
                 
             </div>
