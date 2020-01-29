@@ -312,7 +312,7 @@ export const FaContactSection = () => (
             <li className="navItem">
             <Link
             activeClass="active"
-            to="section6"
+            to="section5"
             spy={true}
             smooth={true}
             offset={-70}
@@ -437,4 +437,3 @@ export const FaSignUpNavbar = () => (
         </div>
       </nav>
 )
-

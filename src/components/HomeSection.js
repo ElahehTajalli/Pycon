@@ -7,7 +7,7 @@ import { Link  } from 'react-router-dom'
 export default class HomeSection extends Component {
     render() {
         return (
-        <div style={{height: '100vh'}} id={this.props.id}>
+        <div className='homeSection' id={this.props.id}>
           <img src={logo}/>
           <div className='timeDiv'>
             {!this.props.en &&

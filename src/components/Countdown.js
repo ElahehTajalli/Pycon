@@ -7,10 +7,17 @@ export default class Countdown extends React.Component {
 		days:0,
 		hours: 0,
 		minutes: 0,
-		seconds: 0
+		seconds: 0,
+		height: 0,
+		width: 0
 	}
 	
+	updateDimensions () {
+		this.setState({ width: window.innerWidth, height: window.innerHeight });
+	  }
+
 	componentDidMount() {
+		window.addEventListener('resize', ()=>this.updateDimensions());
 		this.interval = setInterval(() => {
 			const { timeTillDate, timeFormat } = this.props;
 			const then = moment(timeTillDate, timeFormat)
@@ -24,6 +31,7 @@ export default class Countdown extends React.Component {
 	}
 
 	componentWillUnmount() {
+		window.removeEventListener('resize', ()=>this.updateDimensions());
 		if(this.interval) {
 			clearInterval(this.interval);
 		}
@@ -123,11 +131,11 @@ export default class Countdown extends React.Component {
 
 const SVGCircle = ({ radius }) => (
 	<svg className='countdown-svg'>
-		{window.innerWidth>1000 &&
+		{window.innerWidth>1100 &&
 			<path fill="none" stroke="#333" strokeWidth="4" d={describeArc(50, 50, 48, 0, radius)}/>
 		}
-		{window.innerWidth<=1000 && window.innerWidth>600 &&
-			<path fill="none" stroke="#333" strokeWidth="4" d={describeArc(50, 50, 40, 0, radius)}/>
+		{window.innerWidth<=1100 && window.innerWidth>600 &&
+			<path fill="none" stroke="#333" strokeWidth="4" d={describeArc(50, 50, 41, 0, radius)}/>
 		}
 		{window.innerWidth<=600 &&
 			<path fill="none" stroke="#333" strokeWidth="3" d={describeArc(50, 50, 30, 0, radius)}/>

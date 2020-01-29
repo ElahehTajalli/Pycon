@@ -66,6 +66,8 @@ fieldset {
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
 
+
+
 .nav-item {
   display: inline;
   margin-left: 2rem;
@@ -145,6 +147,7 @@ fieldset {
   display: flex !important;
   justify-content: space-around !important;
   align-items: center !important;
+  width: 100%;
 }
 
 
@@ -527,7 +530,7 @@ footer a {
 }
 
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1100px){
     .timeDiv {
         flex-direction: column;
     }
@@ -541,10 +544,16 @@ footer a {
     }
 
     .countdown-item {
-      font-size: 30px;
+      font-size: 27px;
     }
-    .nav .nav-content {
+    .countdown-item span {
+      font-size: 11px;
+    }
+    /* .nav .nav-content {
       height: 50px;
+    } */
+    .countdown-wrapper {
+      margin-top: 30px;
     }
 }
 
@@ -563,7 +572,11 @@ footer a {
     font-size: 15px;
   }
   .countdown-item span {
-    font-size: 10px;
+    font-size: 9px;
+  }
+
+  .countdown-wrapper {
+    margin-top: 30px;
   }
 }
 
@@ -646,6 +659,7 @@ footer a {
   align-items: flex-start;
   line-height: 2em;
   margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 
@@ -809,3 +823,70 @@ your submituin was succesfully */
 
 
 
+/*......................................home section................................... */
+/* .................................................................................... */
+
+.homeSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+
+/*......................................mobile navbar................................... */
+/* .................................................................................... */
+
+
+.mobile-nav {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 13px;
+  background-color: #282828;
+  height: 70px;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  color: white;
+}
+
+.mobileNavbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-size: 12px;
+}
+
+.navItemMobile {
+  display: inline;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+.navItemMobile:hover {
+  color: #fecb2f;
+}
+
+.MuiDrawer-paperAnchorRight {
+  left: auto;
+  right: 0;
+}
+.MuiDrawer-paper {
+  background: #282828 !important;
+  color: white !important;
+}
+
+.MuiIconButton-root {
+  color: white !important;
+}
