@@ -4,7 +4,6 @@ import logo from '../photos/signUpLogo.svg'
 import { Link } from 'react-router-dom'
 import {FaSignUpNavbar} from './mutliLang'
 
-import ConfirmInfo from '../components/ConfirmInfo'
 import Slide from '@material-ui/core/Slide'
 import { getInformation } from '../action/Pycon'
 

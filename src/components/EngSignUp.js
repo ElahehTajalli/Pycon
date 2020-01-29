@@ -18,21 +18,19 @@ export default class EngSignUp extends React.Component {
             checked : false,
             firstname: '',
             lastname: '',
-            firstname: '',
-            lastname: '',
             email: '',
-            code: '',
-            work: '',
             phone: '',
-            postalCode: '',
-            address: '',
             register: false,
+            postReq: true,
+            affiliation: '',
+            username: '',
             errors : {
-                username :'',
+                username: '',
                 email: '',
-                phone: '',
+                phonenum: '',
                 name_en: '',
-                workplace: ''
+                lastname_en:'',
+                affiliation: ''
             }
         }
     }
@@ -46,60 +44,133 @@ export default class EngSignUp extends React.Component {
         this.setState({ checked : !this.state.checked })
     }
 
-    handleChange () {
-        this.setState({ checked : !this.state.checked, register: false })
-                    this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
-                    this.state.email, this.state.work, this.state.work, this.state.phone)))
-            // axios.post('http://127.0.0.1:8000/user/registerForeign/', {
-            //     username: this.state.username,
-            //     name_en: this.state.firstname,
-            //     phonenum: this.state.phone,
-            //     workplace: this.state.work,
-            //     email: this.state.email,
-            //   })
-            //     .then((response) => {
-            //         const errors = {
-            //             username: '',
-            //             email: '',
-            //             phone: '',
-            //             name_en: '',
-            //             workplace: ''
-            //         }
-            //         this.setState({ checked : !this.state.checked , errors , register: false })
-            //         this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
-            //         this.state.email, this.state.work, this.state.work, this.state.phone)))
+    changeReq() {
+        this.setState({ postReq: true})
+    }
 
-            //     })
-            //     .catch((error) => {
-            //         let username=''
-            //         let email = ''
-            //         let phone = ''
-            //         let name_en = ''
-            //         let workplace = ''
-            //         if (error.response.data.username !== undefined) {
-            //             username = error.response.data.username[0]
-            //         }
-            //         if (error.response.data.email !== undefined) {
-            //             email = error.response.data.email[0]
-            //         }
-            //         if (error.response.data.phonenum !== undefined) {
-            //             phone = error.response.data.phonenum[0]
-            //         }
-            //         if (error.response.data.name_en !== undefined) {
-            //             name_en = error.response.data.name_en[0]
-            //         }
-            //         if (error.response.data.workplace !== undefined) {
-            //             workplace = error.response.data.workplace[0]
-            //         }
-            //         const errors = {
-            //             username: username,
-            //             email: email,
-            //             phone: phone,
-            //             name_en: name_en,
-            //             workplace: workplace
-            //         }
-            //         this.setState({ errors: errors })
-            //     })    
+    handleChange () {
+        // this.setState({ checked : !this.state.checked, register: false })
+        //             this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
+        //             this.state.email, this.state.work, this.state.work, this.state.phone)))
+        if(this.state.postReq) {
+            axios.post('http://94.182.191.147/api/user/registerForeign/', {
+                username: this.state.username,
+                name_en: this.state.firstname,
+                lastname_en: this.state.lastname,
+                phonenum: this.state.phone,
+                email: this.state.email,
+                workplace_name: this.state.affiliation
+
+              })
+                .then((response) => {
+                    const errors = {
+                        username: '',
+                        email: '',
+                        phonenum: '',
+                        name_en: '',
+                        lastname_en:'',
+                        affiliation: ''
+                    }
+                    this.setState({ checked : !this.state.checked , errors , register: false, postReq: false })
+                    // this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
+                    // this.state.email, this.state.affiliation, this.state.phone)))
+
+                })
+                .catch((error) => {
+                    let username=''
+                    let email = ''
+                    let phonenum = ''
+                    let name_en = ''
+                    let lastname_en = ''
+                    let affiliation = ''
+                    if (error.response.data.username !== undefined) {
+                        username = error.response.data.username[0]
+                    }
+                    if (error.response.data.email !== undefined) {
+                        email = error.response.data.email[0]
+                    }
+                    if (error.response.data.phonenum !== undefined) {
+                        phonenum = error.response.data.phonenum[0]
+                    }
+                    if (error.response.data.name_en !== undefined) {
+                        name_en = error.response.data.name_en[0]
+                    }
+                    if (error.response.data.lastname_en !== undefined) {
+                        lastname_en = error.response.data.lastname_en[0]
+                    }
+                    if (error.response.data.workplace_name !== undefined) {
+                        affiliation = error.response.data.workplace_name[0]
+                    }
+                    const errors = {
+                        username: username,
+                        email: email,
+                        phonenum: phonenum,
+                        name_en: name_en,
+                        lastname_en: lastname_en,
+                        affiliation: affiliation
+                    }
+                    this.setState({ errors: errors })
+                })
+            } else {
+                axios.put('http://94.182.191.147/api/user/registerForeign/', {
+                username: this.state.username,
+                name_en: this.state.firstname,
+                lastname_en: this.state.lastname,
+                phonenum: this.state.phone,
+                email: this.state.email,
+                workplace_name: this.state.affiliation
+
+              })
+                .then((response) => {
+                    const errors = {
+                        username: '',
+                        email: '',
+                        phonenum: '',
+                        name_en: '',
+                        lastname_en:'',
+                        affiliation: ''
+                    }
+                    this.setState({ checked : !this.state.checked , errors , register: false, postReq: false })
+                    // this.props.dispatch((getInformation(this.state.firstname, this.state.lastname,
+                    // this.state.email,this.state.affiliation, this.state.phone)))
+
+                })
+                .catch((error) => {
+                    let username=''
+                    let email = ''
+                    let phonenum = ''
+                    let name_en = ''
+                    let lastname_en = ''
+                    let affiliation = ''
+                    if (error.response.data.username !== undefined) {
+                        username = error.response.data.username[0]
+                    }
+                    if (error.response.data.email !== undefined) {
+                        email = error.response.data.email[0]
+                    }
+                    if (error.response.data.phonenum !== undefined) {
+                        phonenum = error.response.data.phonenum[0]
+                    }
+                    if (error.response.data.name_en !== undefined) {
+                        name_en = error.response.data.name_en[0]
+                    }
+                    if (error.response.data.lastname_en !== undefined) {
+                        lastname_en = error.response.data.lastname_en[0]
+                    }
+                    if (error.response.data.workplace_name !== undefined) {
+                        affiliation = error.response.data.workplace_name[0]
+                    }
+                    const errors = {
+                        username: username,
+                        email: email,
+                        phonenum: phonenum,
+                        name_en: name_en,
+                        lastname_en: lastname_en,
+                        affiliation: affiliation
+                    }
+                    this.setState({ errors: errors })
+                })
+            } 
     
     }
 
@@ -150,7 +221,10 @@ export default class EngSignUp extends React.Component {
                                 onChange={(e)=> this.changeInput(e)}
 
                             />
-                            { this.state.errors.name_en &&
+                            { this.state.errors.lastname_en &&
+                                <p className='errors'>{this.state.errors.lastname_en}</p>
+                            }
+                            { this.state.errors.name_en && !this.state.errors.lastname_en &&
                                 <p className='errorss'>{this.state.errors.name_en}</p>
                             }
                         </div>
@@ -185,14 +259,14 @@ export default class EngSignUp extends React.Component {
                                 id="outlined-email-input"
                                 label="Affiliation"
                                 type="text"
-                                name="work"
+                                name="affiliation"
                                 margin="normal"
                                 variant="outlined"
                                 onChange={(e)=> this.changeInput(e)}
 
                         />
-                        { this.state.errors.workplace &&
-                            <p className='errors'>{this.state.errors.workplace}</p>
+                        { this.state.errors.affiliation &&
+                            <p className='errors'>{this.state.errors.affiliation}</p>
                         }
                         
                         <TextField
@@ -205,8 +279,8 @@ export default class EngSignUp extends React.Component {
                             onChange={(e)=> this.changeInput(e)}
 
                         />
-                        { this.state.errors.phone &&
-                            <p className='errors'>{this.state.errors.phone}</p>
+                        { this.state.errors.phonenum &&
+                            <p className='errors'>{this.state.errors.phonenum}</p>
                         }
                     </div>
                     <button type='submit' className='nextButton' onClick={()=> this.handleChange()}>Next</button>
@@ -215,7 +289,7 @@ export default class EngSignUp extends React.Component {
                             firstname={this.state.firstname}
                             lastname={this.state.lastname}
                             email={this.state.email}
-                            work={this.state.work}
+                            affiliation={this.state.affiliation}
                             phone={this.state.phone}
                             handleChange={()=>this.back()}
                             register={()=>this.register()}

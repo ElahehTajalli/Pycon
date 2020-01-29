@@ -1,5 +1,4 @@
 
-
 @font-face {
   font-family: 'Vazir';
   src: url('/node_modules/vazir-font/dist/Vazir.eot');
@@ -304,6 +303,14 @@ fieldset {
 }
 
 
+.addressDiv {
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 
 /* ..................................Sign up navbar.................................... */
 /* .................................................................................... */
@@ -378,7 +385,7 @@ fieldset {
   justify-content: center;
   padding: 20px;
   padding-bottom: 30px;
-  height: 85vh;
+  /* height: 85vh; */
 }
 
 
@@ -454,7 +461,7 @@ h1 {
 	letter-spacing: 2px;
 	text-align: center;
   text-transform: uppercase;
-  padding-top: 30px;
+  /* padding-top: 30px; */
 }
 
 .countdown-wrapper {
@@ -520,6 +527,47 @@ footer a {
 }
 
 
+  @media screen and (max-width: 1000px){
+    .timeDiv {
+        flex-direction: column;
+    }
+    .sendButton {
+      padding: 10px 45px;
+      font-size: 15px;
+    }
+    .signUpLink {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+
+    .countdown-item {
+      font-size: 30px;
+    }
+    .nav .nav-content {
+      height: 50px;
+    }
+}
+
+
+@media screen and (max-width: 600px){
+  .sendButton {
+    font-size: 10px;
+  }
+  .signUpLink {
+    font-size: 10px;
+  }
+  .countdown-item {
+    line-height: normal;
+    margin: 0;
+    padding-top: 0;
+    font-size: 15px;
+  }
+  .countdown-item span {
+    font-size: 10px;
+  }
+}
+
+
 
 
 /* ..........................................landing  page........................................... */
@@ -536,7 +584,7 @@ footer a {
   color: white;
   font-weight: bold;
   font-size: 20px;
-  margin: 50px 0px -20px 0px;
+  margin: 50px 0px 10px 0px;
 }
 
 
@@ -619,7 +667,20 @@ footer a {
 }
 
 
+.MuiListItemText-root {
+  direction: rtl;
+  text-align: right;
+}
 
+.question{
+  background-color: #edbf38 !important;
+  color: #282828 !important;
+}
+
+.answer {
+  background-color: #efd793 !important;
+  color: #282828 !important;
+}
 
 
 
@@ -724,6 +785,25 @@ your submituin was succesfully */
 .engConfirmPayButton {
   background-color: #6ad280;
   font-family: 'vazir';
+}
+
+
+
+
+/* .........................................Text........................................ */
+/* ..................................................................................... */
+
+.engAbout {
+  display: block;
+  font-size: 18px;
+}
+
+
+.faAbout {
+  display: block;
+  font-size: 18px;
+  text-align: right;
+  direction: rtl;
 }
 
 

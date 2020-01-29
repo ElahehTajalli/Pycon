@@ -1,5 +1,5 @@
 import React from 'react'
-import dummyText from "../DummyText"
+import {dummyText, About, FaAbout} from "../Text"
 import ContactSectionContainer from '../container/ContactSectionContainer'
 import { Link, animateScroll as scroll } from "react-scroll"
 import { Link as LinkTo } from 'react-router-dom'
@@ -8,7 +8,7 @@ export const FaSection = () => (
     <>
         <FaSections
         title="درباره پایکان"
-        subtitle={dummyText}
+        subtitle={<FaAbout />}
         dark={true}
         id="section3"
         />
@@ -42,28 +42,28 @@ export const FaSection = () => (
 export const EngSection = () => (
     <>
         <EngSections
-        title="Schedule"
-        subtitle={dummyText}
-        dark={true}
-        id="section5"
-        />
-        <EngSections
         title="About"
-        subtitle={dummyText}
-        dark={false}
-        id="section3"
-        />
-        <EngSections
-        title="Sponsors"
-        subtitle={dummyText}
+        subtitle={<About />}
         dark={true}
-        id="section9"
+        id="section3"
         />
         <EngSections
         title="Event"
         subtitle={dummyText}
         dark={false}
         id="section4"
+        />
+        <EngSections
+        title="Schedule"
+        subtitle={dummyText}
+        dark={true}
+        id="section5"
+        />
+        <EngSections
+        title="Sponsors"
+        subtitle={dummyText}
+        dark={false}
+        id="section9"
         />
         <ContactSectionContainer
         title="Infromation"
@@ -202,18 +202,6 @@ export const NavbarEng = () => (
         <li className="nav-item">
             <Link
             activeClass="active"
-            to="section5"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            >
-            Schedule
-            </Link>
-        </li>
-        <li className="nav-item">
-            <Link
-            activeClass="active"
             to="section3"
             spy={true}
             smooth={true}
@@ -226,18 +214,6 @@ export const NavbarEng = () => (
         <li className="nav-item">
             <Link
             activeClass="active"
-            to="section9"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            >
-            Sponsors
-            </Link>
-        </li>
-        <li className="nav-item">
-            <Link
-            activeClass="active"
             to="section4"
             spy={true}
             smooth={true}
@@ -245,6 +221,31 @@ export const NavbarEng = () => (
             duration={500}
             >
             Event
+            </Link>
+        </li>
+        <li className="nav-item">
+            <Link
+            activeClass="active"
+            to="section5"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            Schedule
+            </Link>
+        </li>
+        
+        <li className="nav-item">
+            <Link
+            activeClass="active"
+            to="section9"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            >
+            Sponsors
             </Link>
         </li>
         <li className="nav-item">

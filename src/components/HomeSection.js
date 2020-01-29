@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import logo from '../photos/mainLogo.svg'
-import Countdown from './Countdown'
+import CountdownContainer from '../container/CountdownContainer'
 import { Link  } from 'react-router-dom'
 
 
@@ -24,7 +24,7 @@ export default class HomeSection extends Component {
             </div>
             }
             
-            <Countdown timeTillDate="05 26 2019, 6:00 am" timeFormat="MM DD YYYY, h:mm a" />
+            <CountdownContainer timeTillDate="07 29 2020, 1:00 am" timeFormat="MM DD YYYY, h:mm a" />
           </div>
         </div>
         )
